@@ -1,0 +1,295 @@
+"""
+内存状态管理器
+类似于 analysis-engine 的实现，提供快速的状态读写
+"""
+
+import asyncio
+from typing import Dict, Any, Optional, List
+from datetime import datetime
+import logging
+from dataclasses import dataclass, asdict
+from enum import Enum
+
+logger = logging.getLogger(__name__)
+
+class TaskStatus(Enum):
+    """任务状态枚举"""
+    PENDING = "pending"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    FAILED = "failed"
+    CANCELLED = "cancelled"
+
+@dataclass
+class TaskState:
+    """任务状态数据类"""
+    task_id: str
+    user_id: str
+    stock_code: str
+    status: TaskStatus
+    stock_name: Optional[str] = None
+    progress: int = 0
+    message: str = ""
+    current_step: str = ""
+    start_time: Optional[datetime] = None
+    end_time: Optional[datetime] = None
+    result_data: Optional[Dict[str, Any]] = None
+    error_message: Optional[str] = None
+    
+    # 分析参数
+    parameters: Optional[Dict[str, Any]] = None
+    
+    # 性能指标
+    execution_time: Optional[float] = None
+    tokens_used: Optional[int] = None
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """转换为字典格式"""
+        data = asdict(self)
+        # 处理枚举类型
+        data['status'] = self.status.value
+        # 处理时间格式
+        if self.start_time:
+            data['start_time'] = self.start_time.isoformat()
+        if self.end_time:
+            data['end_time'] = self.end_time.isoformat()
+
+        # 添加实时计算的时间信息
+        if self.start_time:
+            if self.end_time:
+                # 任务已完成，使用最终执行时间
+                data['elapsed_time'] = self.execution_time or (self.end_time - self.start_time).total_seconds()
+                data['remaining_time'] = 0
+                data['estimated_total_time'] = data['elapsed_time']
+            else:
+                # 任务进行中，实时计算已用时间
+                from datetime import datetime
+                elapsed_time = (datetime.now() - self.start_time).total_seconds()
+                data['elapsed_time'] = elapsed_time
+
+                # 计算预计剩余时间和总时长（采用web目录的逻辑）
+                progress = self.progress / 100 if self.progress > 0 else 0
+
+                # 基础预估时间（默认5分钟）
+                base_estimated_total = 300
+
+                if progress >= 1.0:
+                    # 任务已完成
+                    data['remaining_time'] = 0
+                    data['estimated_total_time'] = elapsed_time
+                else:
+                    # 优先使用基础预估时间
+                    data['estimated_total_time'] = base_estimated_total
+                    data['remaining_time'] = max(0, base_estimated_total - elapsed_time)
+
+                    # 如果已经超过预估时间，根据当前进度动态调整
+                    if data['remaining_time'] <= 0 and progress > 0:
+                        data['estimated_total_time'] = elapsed_time / progress
+                        data['remaining_time'] = max(0, data['estimated_total_time'] - elapsed_time)
+        else:
+            data['elapsed_time'] = 0
+            data['remaining_time'] = 300  # 默认5分钟
+            data['estimated_total_time'] = 300
+
+        return data
+
+class MemoryStateManager:
+    """内存状态管理器"""
+
+    def __init__(self):
+        self._tasks: Dict[str, TaskState] = {}
+        self._lock = asyncio.Lock()
+        self._websocket_manager = None
+
+    def set_websocket_manager(self, websocket_manager):
+        """设置 WebSocket 管理器"""
+        self._websocket_manager = websocket_manager
+        
+    async def create_task(
+        self,
+        task_id: str,
+        user_id: str,
+        stock_code: str,
+        parameters: Optional[Dict[str, Any]] = None,
+        stock_name: Optional[str] = None,
+    ) -> TaskState:
+        """创建新任务"""
+        async with self._lock:
+            task_state = TaskState(
+                task_id=task_id,
+                user_id=user_id,
+                stock_code=stock_code,
+                stock_name=stock_name,
+                status=TaskStatus.PENDING,
+                start_time=datetime.now(),
+                parameters=parameters or {},
+                message="任务已创建，等待执行..."
+            )
+            self._tasks[task_id] = task_state
+            logger.info(f"📝 创建任务状态: {task_id}")
+            logger.info(f"📊 当前内存中任务数量: {len(self._tasks)}")
+            logger.info(f"🔍 内存管理器实例ID: {id(self)}")
+            return task_state
+
+    async def update_task_status(
+        self, 
+        task_id: str, 
+        status: TaskStatus,
+        progress: Optional[int] = None,
+        message: Optional[str] = None,
+        current_step: Optional[str] = None,
+        result_data: Optional[Dict[str, Any]] = None,
+        error_message: Optional[str] = None
+    ) -> bool:
+        """更新任务状态"""
+        async with self._lock:
+            if task_id not in self._tasks:
+                logger.warning(f"⚠️ 任务不存在: {task_id}")
+                return False
+            
+            task = self._tasks[task_id]
+            task.status = status
+            
+            if progress is not None:
+                task.progress = progress
+            if message is not None:
+                task.message = message
+            if current_step is not None:
+                task.current_step = current_step
+            if result_data is not None:
+                # 🔍 调试：检查保存到内存的result_data
+                logger.info(f"🔍 [MEMORY] 保存result_data到内存: {task_id}")
+                logger.info(f"🔍 [MEMORY] result_data键: {list(result_data.keys()) if result_data else '无'}")
+                logger.info(f"🔍 [MEMORY] result_data中有decision: {bool(result_data.get('decision')) if result_data else False}")
+                if result_data and result_data.get('decision'):
+                    logger.info(f"🔍 [MEMORY] decision内容: {result_data['decision']}")
+
+                task.result_data = result_data
+            if error_message is not None:
+                task.error_message = error_message
+                
+            # 如果任务完成或失败，设置结束时间
+            if status in [TaskStatus.COMPLETED, TaskStatus.FAILED, TaskStatus.CANCELLED]:
+                task.end_time = datetime.now()
+                if task.start_time:
+                    task.execution_time = (task.end_time - task.start_time).total_seconds()
+            
+            logger.info(f"📊 更新任务状态: {task_id} -> {status.value} ({progress}%)")
+
+            # 推送状态更新到 WebSocket
+            if self._websocket_manager:
+                try:
+                    progress_update = {
+                        "type": "progress_update",
+                        "task_id": task_id,
+                        "status": status.value,
+                        "progress": task.progress,
+                        "message": task.message,
+                        "current_step": task.current_step,
+                        "timestamp": datetime.now().isoformat()
+                    }
+                    # 异步推送，不等待完成
+                    asyncio.create_task(
+                        self._websocket_manager.send_progress_update(task_id, progress_update)
+                    )
+                except Exception as e:
+                    logger.warning(f"⚠️ WebSocket 推送失败: {e}")
+
+            return True
+    
+    async def get_task(self, task_id: str) -> Optional[TaskState]:
+        """获取任务状态"""
+        async with self._lock:
+            logger.debug(f"🔍 查询任务: {task_id}")
+            logger.debug(f"📊 当前内存中任务数量: {len(self._tasks)}")
+            logger.debug(f"🔑 内存中的任务ID列表: {list(self._tasks.keys())}")
+            task = self._tasks.get(task_id)
+            if task:
+                logger.debug(f"✅ 找到任务: {task_id}")
+            else:
+                logger.debug(f"❌ 未找到任务: {task_id}")
+            return task
+    
+    async def get_task_dict(self, task_id: str) -> Optional[Dict[str, Any]]:
+        """获取任务状态（字典格式）"""
+        task = await self.get_task(task_id)
+        return task.to_dict() if task else None
+    
+    async def list_user_tasks(
+        self, 
+        user_id: str, 
+        status: Optional[TaskStatus] = None,
+        limit: int = 20,
+        offset: int = 0
+    ) -> List[Dict[str, Any]]:
+        """获取用户的任务列表"""
+        async with self._lock:
+            tasks = []
+            for task in self._tasks.values():
+                if task.user_id == user_id:
+                    if status is None or task.status == status:
+                        item = task.to_dict()
+                        # 兼容前端字段
+                        if 'stock_name' not in item or not item.get('stock_name'):
+                            item['stock_name'] = None
+                        tasks.append(item)
+
+            # 按开始时间倒序排列
+            tasks.sort(key=lambda x: x.get('start_time', ''), reverse=True)
+            
+            # 分页
+            return tasks[offset:offset + limit]
+    
+    async def delete_task(self, task_id: str) -> bool:
+        """删除任务"""
+        async with self._lock:
+            if task_id in self._tasks:
+                del self._tasks[task_id]
+                logger.info(f"🗑️ 删除任务: {task_id}")
+                return True
+            return False
+    
+    async def get_statistics(self) -> Dict[str, Any]:
+        """获取统计信息"""
+        async with self._lock:
+            total_tasks = len(self._tasks)
+            status_counts = {}
+            
+            for task in self._tasks.values():
+                status = task.status.value
+                status_counts[status] = status_counts.get(status, 0) + 1
+            
+            return {
+                "total_tasks": total_tasks,
+                "status_distribution": status_counts,
+                "running_tasks": status_counts.get("running", 0),
+                "completed_tasks": status_counts.get("completed", 0),
+                "failed_tasks": status_counts.get("failed", 0)
+            }
+    
+    async def cleanup_old_tasks(self, max_age_hours: int = 24) -> int:
+        """清理旧任务"""
+        async with self._lock:
+            cutoff_time = datetime.now().timestamp() - (max_age_hours * 3600)
+            tasks_to_remove = []
+            
+            for task_id, task in self._tasks.items():
+                if task.start_time and task.start_time.timestamp() < cutoff_time:
+                    if task.status in [TaskStatus.COMPLETED, TaskStatus.FAILED, TaskStatus.CANCELLED]:
+                        tasks_to_remove.append(task_id)
+            
+            for task_id in tasks_to_remove:
+                del self._tasks[task_id]
+            
+            logger.info(f"🧹 清理了 {len(tasks_to_remove)} 个旧任务")
+            return len(tasks_to_remove)
+
+# 全局实例
+_memory_state_manager = None
+
+def get_memory_state_manager() -> MemoryStateManager:
+    """获取内存状态管理器实例"""
+    global _memory_state_manager
+    if _memory_state_manager is None:
+        _memory_state_manager = MemoryStateManager()
+    return _memory_state_manager
