@@ -1,148 +1,148 @@
-# TradingAgents 中文增强版
+# TradingAgents Versión Mejorada
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Version](https://img.shields.io/badge/Version-cn--0.1.16--preview-orange.svg)](./VERSION)
-[![Documentation](https://img.shields.io/badge/docs-中文文档-green.svg)](./docs/)
-[![Original](https://img.shields.io/badge/基于-TauricResearch/TradingAgents-orange.svg)](https://github.com/TauricResearch/TradingAgents)
+[![Documentation](https://img.shields.io/badge/docs-Documentación-green.svg)](./docs/)
+[![Original](https://img.shields.io/badge/Basado%20en-TauricResearch/TradingAgents-orange.svg)](https://github.com/TauricResearch/TradingAgents)
 
-[📜 v0.1.16-preview Release Notes](docs/releases/v0.1.16-preview-release-notes.md) · [v0.1.15 Release Notes](docs/releases/v0.1.15-release-notes.md)
+[📜 Notas de Versión v0.1.16-preview](docs/releases/v0.1.16-preview-release-notes.md) · [Notas de Versión v0.1.15](docs/releases/v0.1.15-release-notes.md)
 
-> 🚀 **最新版本 cn-0.1.16-preview**: 多应用架构预览！新增 FastAPI 后端 + Vite 前端（与现有 Streamlit 并存过渡），统一配置与服务化，文档与脚本体系升级。
+> 🚀 **Última Versión cn-0.1.16-preview**: ¡Vista previa de arquitectura multi-aplicación! Nuevo backend FastAPI + frontend Vite (en transición con Streamlit existente), configuración unificada y servicios, mejoras en documentación y sistema de scripts.
 >
-> 🎯 **核心功能**: 原生OpenAI支持 | Google AI全面集成 | 自定义端点配置 | 智能模型选择 | 多LLM提供商支持 | 模型选择持久化 | Docker容器化部署 | 专业报告导出 | 完整A股支持 | 中文本地化
+> 🎯 **Funciones Principales**: Soporte nativo OpenAI | Integración completa Google AI | Configuración de endpoints personalizados | Selección inteligente de modelos | Soporte multi-proveedor LLM | Persistencia de selección de modelos | Despliegue containerizado Docker | Exportación profesional de informes | Soporte completo mercados asiáticos | Localización
 
-基于多智能体大语言模型的**中文金融交易决策框架**。专为中文用户优化，提供完整的A股/港股/美股分析能力。
+**Marco de decisiones de trading financiero** basado en agentes múltiples con modelos de lenguaje grandes. Optimizado para proporcionar capacidades completas de análisis de mercados bursátiles globales.
 
-## 🙏 致敬源项目
+## 🙏 Homenaje al Proyecto Original
 
-感谢 [Tauric Research](https://github.com/TauricResearch) 团队创造的革命性多智能体交易框架 [TradingAgents](https://github.com/TauricResearch/TradingAgents)！
+¡Gracias al equipo de [Tauric Research](https://github.com/TauricResearch) por crear el revolucionario marco de trading multi-agente [TradingAgents](https://github.com/TauricResearch/TradingAgents)!
 
-**🎯 我们的使命**: 为中国用户提供完整的中文化体验，支持A股/港股市场，集成国产大模型，推动AI金融技术在中文社区的普及应用。
+**🎯 Nuestra Misión**: Proporcionar una experiencia completa optimizada, soporte para múltiples mercados bursátiles, integración de modelos de IA avanzados, promoviendo la aplicación de tecnología financiera AI en la comunidad global.
 
-## 🆕 v0.1.14-preview 重大更新
+## 🆕 Actualizaciones Importantes v0.1.14-preview
 
-### 👥 用户权限管理系统
+### 👥 Sistema de Gestión de Permisos de Usuario
 
-- **完整用户管理**: 新增用户注册、登录、权限控制功能
-- **角色权限**: 支持多级用户角色和权限管理
-- **会话管理**: 安全的用户会话和状态管理
-- **用户活动日志**: 完整的用户操作记录和审计功能
+- **Gestión completa de usuarios**: Nuevas funciones de registro, inicio de sesión y control de permisos
+- **Permisos por roles**: Soporte para gestión de roles y permisos multinivel
+- **Gestión de sesiones**: Gestión segura de sesiones y estado de usuario
+- **Registro de actividad**: Registro completo de operaciones de usuario y funciones de auditoría
 
-### 🔐 Web用户认证系统
+### 🔐 Sistema de Autenticación Web
 
-- **登录组件**: 现代化的用户登录界面
-- **认证管理器**: 统一的用户认证和授权管理
-- **安全增强**: 密码加密、会话安全等安全机制
-- **用户仪表板**: 个性化的用户活动仪表板
+- **Componente de inicio de sesión**: Interfaz moderna de inicio de sesión de usuario
+- **Gestor de autenticación**: Gestión unificada de autenticación y autorización de usuarios
+- **Mejoras de seguridad**: Mecanismos de seguridad como cifrado de contraseñas y seguridad de sesión
+- **Panel de usuario**: Panel de actividad personalizado para el usuario
 
-### 🗄️ 数据管理优化
+### 🗄️ Optimización de Gestión de Datos
 
-- **MongoDB集成增强**: 改进的MongoDB连接和数据管理
-- **数据目录重组**: 优化的数据存储结构和管理
-- **数据迁移脚本**: 完整的数据迁移和备份工具
-- **缓存优化**: 提升数据加载和分析结果缓存性能
+- **Integración mejorada de MongoDB**: Mejoras en conexión MongoDB y gestión de datos
+- **Reorganización de directorios**: Estructura optimizada de almacenamiento y gestión de datos
+- **Scripts de migración**: Herramientas completas de migración y respaldo de datos
+- **Optimización de caché**: Mejora del rendimiento de carga de datos y caché de resultados de análisis
 
-### 🧪 测试覆盖增强
+### 🧪 Mejoras en Cobertura de Pruebas
 
-- **功能测试脚本**: 新增6个专项功能测试脚本
-- **工具处理器测试**: Google工具处理器修复验证
-- **引导自动隐藏测试**: UI交互功能测试
-- **在线工具配置测试**: 工具配置和选择逻辑测试
-- **真实场景测试**: 实际使用场景的端到端测试
-- **美股独立性测试**: 美股分析功能独立性验证
+- **Scripts de pruebas funcionales**: 6 nuevos scripts de pruebas funcionales especializadas
+- **Pruebas de procesador de herramientas**: Verificación de correcciones del procesador de herramientas Google
+- **Pruebas de auto-ocultación**: Pruebas de funciones de interacción UI
+- **Pruebas de configuración de herramientas**: Pruebas de lógica de configuración y selección de herramientas
+- **Pruebas de escenarios reales**: Pruebas end-to-end de casos de uso reales
+- **Pruebas de independencia**: Verificación de independencia de funciones de análisis de mercados
 
 ---
 
-## 🆕 v0.1.13 重大更新
+## 🆕 Actualizaciones Importantes v0.1.13
 
-### 🤖 原生OpenAI端点支持
+### 🤖 Soporte Nativo de Endpoints OpenAI
 
-- **自定义OpenAI端点**: 支持配置任意OpenAI兼容的API端点
-- **灵活模型选择**: 可以使用任何OpenAI格式的模型，不限于官方模型
-- **智能适配器**: 新增原生OpenAI适配器，提供更好的兼容性和性能
-- **配置管理**: 统一的端点和模型配置管理系统
+- **Endpoints OpenAI personalizados**: Soporte para configurar cualquier endpoint compatible con OpenAI
+- **Selección flexible de modelos**: Uso de cualquier modelo en formato OpenAI, no limitado a modelos oficiales
+- **Adaptador inteligente**: Nuevo adaptador nativo OpenAI para mejor compatibilidad y rendimiento
+- **Gestión de configuración**: Sistema unificado de gestión de endpoints y configuración de modelos
 
-### 🧠 Google AI生态系统全面集成
+### 🧠 Integración Completa del Ecosistema Google AI
 
-- **三大Google AI包支持**: langchain-google-genai、google-generativeai、google-genai
-- **9个验证模型**: gemini-2.5-pro, gemini-2.5-flash, gemini-2.0-flash等最新模型
-- **Google工具处理器**: 专门的Google AI工具调用处理器
-- **智能降级机制**: 高级功能失败时自动降级到基础功能
+- **Soporte de tres paquetes Google AI**: langchain-google-genai, google-generativeai, google-genai
+- **9 modelos verificados**: gemini-2.5-pro, gemini-2.5-flash, gemini-2.0-flash y otros modelos más recientes
+- **Procesador de herramientas Google**: Procesador dedicado para llamadas de herramientas de Google AI
+- **Mecanismo de degradación inteligente**: Degradación automática a funciones básicas cuando fallan funciones avanzadas
 
-### 🔧 LLM适配器架构优化
+### 🔧 Optimización de Arquitectura de Adaptadores LLM
 
-- **GoogleOpenAIAdapter**: 新增Google AI的OpenAI兼容适配器
-- **统一接口**: 所有LLM提供商使用统一的调用接口
-- **错误处理增强**: 改进的异常处理和自动重试机制
-- **性能监控**: 添加LLM调用性能监控和统计
+- **GoogleOpenAIAdapter**: Nuevo adaptador compatible con OpenAI para Google AI
+- **Interfaz unificada**: Todos los proveedores LLM usan interfaz de llamada unificada
+- **Manejo de errores mejorado**: Mejoras en manejo de excepciones y mecanismo de reintento automático
+- **Monitoreo de rendimiento**: Adición de monitoreo de rendimiento y estadísticas de llamadas LLM
 
-### 🎨 Web界面智能优化
+### 🎨 Optimización Inteligente de Interfaz Web
 
-- **智能模型选择**: 根据可用性自动选择最佳模型
-- **KeyError修复**: 彻底解决模型选择中的KeyError问题
-- **UI响应优化**: 改进模型切换的响应速度和用户体验
-- **错误提示**: 更友好的错误提示和解决建议
+- **Selección inteligente de modelos**: Selección automática del mejor modelo según disponibilidad
+- **Corrección de KeyError**: Solución completa del problema KeyError en selección de modelos
+- **Optimización de respuesta UI**: Mejora en velocidad de respuesta de cambio de modelos y experiencia de usuario
+- **Mensajes de error**: Mensajes de error más amigables y sugerencias de solución
 
-## 🆕 v0.1.12 重大更新
+## 🆕 Actualizaciones Importantes v0.1.12
 
-### 🧠 智能新闻分析模块
+### 🧠 Módulo de Análisis Inteligente de Noticias
 
-- **智能新闻过滤器**: 基于AI的新闻相关性评分和质量评估
-- **多层次过滤机制**: 基础过滤、增强过滤、集成过滤三级处理
-- **新闻质量评估**: 自动识别和过滤低质量、重复、无关新闻
-- **统一新闻工具**: 整合多个新闻源，提供统一的新闻获取接口
+- **Filtro inteligente de noticias**: Puntuación de relevancia de noticias basada en IA y evaluación de calidad
+- **Mecanismo de filtrado multinivel**: Procesamiento de tres niveles: filtrado básico, mejorado e integrado
+- **Evaluación de calidad**: Identificación y filtrado automático de noticias de baja calidad, duplicadas e irrelevantes
+- **Herramienta unificada de noticias**: Integración de múltiples fuentes de noticias con interfaz unificada
 
-### 🔧 技术修复和优化
+### 🔧 Correcciones y Optimizaciones Técnicas
 
-- **DashScope适配器修复**: 解决工具调用兼容性问题
-- **DeepSeek死循环修复**: 修复新闻分析师的无限循环问题
-- **LLM工具调用增强**: 提升工具调用的可靠性和稳定性
-- **新闻检索器优化**: 增强新闻数据获取和处理能力
+- **Corrección de adaptador DashScope**: Solución de problemas de compatibilidad de llamadas de herramientas
+- **Corrección de bucle infinito DeepSeek**: Corrección del problema de bucle infinito del analista de noticias
+- **Mejora de llamadas de herramientas LLM**: Mejora de confiabilidad y estabilidad de llamadas de herramientas
+- **Optimización de recuperador de noticias**: Mejora de capacidades de obtención y procesamiento de datos de noticias
 
-### 📚 完善测试和文档
+### 📚 Mejoras en Pruebas y Documentación
 
-- **全面测试覆盖**: 新增15+个测试文件，覆盖所有新功能
-- **详细技术文档**: 新增8个技术分析报告和修复文档
-- **用户指南完善**: 新增新闻过滤使用指南和最佳实践
-- **演示脚本**: 提供完整的新闻过滤功能演示
+- **Cobertura completa de pruebas**: Más de 15 nuevos archivos de prueba cubriendo todas las nuevas funciones
+- **Documentación técnica detallada**: 8 nuevos informes de análisis técnico y documentos de correcciones
+- **Guías de usuario mejoradas**: Nueva guía de uso de filtrado de noticias y mejores prácticas
+- **Scripts de demostración**: Demostración completa de funciones de filtrado de noticias
 
-### 🗂️ 项目结构优化
+### 🗂️ Optimización de Estructura del Proyecto
 
-- **文档分类整理**: 按功能将文档分类到docs子目录
-- **示例代码归位**: 演示脚本统一到examples目录
-- **根目录整洁**: 保持根目录简洁，提升项目专业度
+- **Clasificación de documentación**: Documentos clasificados por función en subdirectorios docs
+- **Código de ejemplo organizado**: Scripts de demostración unificados en directorio examples
+- **Directorio raíz limpio**: Mantener directorio raíz conciso, mejorar profesionalismo del proyecto
 
-## 🎯 核心特性
+## 🎯 Características Principales
 
-### 🤖 多智能体协作架构
+### 🤖 Arquitectura de Colaboración Multi-Agente
 
-- **专业分工**: 基本面、技术面、新闻面、社交媒体四大分析师
-- **结构化辩论**: 看涨/看跌研究员进行深度分析
-- **智能决策**: 交易员基于所有输入做出最终投资建议
-- **风险管理**: 多层次风险评估和管理机制
+- **División profesional**: Cuatro analistas principales: fundamentos, técnico, noticias y redes sociales
+- **Debate estructurado**: Investigadores alcistas/bajistas realizan análisis en profundidad
+- **Decisión inteligente**: Los traders toman recomendaciones de inversión finales basadas en todas las entradas
+- **Gestión de riesgos**: Mecanismo de evaluación y gestión de riesgos multinivel
 
-## 🖥️ Web界面展示
+## 🖥️ Demostración de Interfaz Web
 
-### 📸 界面截图
+### 📸 Capturas de Pantalla
 
-> 🎨 **现代化Web界面**: 基于Streamlit构建的响应式Web应用，提供直观的股票分析体验
+> 🎨 **Interfaz Web Moderna**: Aplicación web responsive construida con Streamlit, proporcionando experiencia intuitiva de análisis de acciones
 
-#### 🏠 主界面 - 分析配置
+#### 🏠 Interfaz Principal - Configuración de Análisis
 
 ![1755003162925](images/README/1755003162925.png)
 
 ![1755002619976](images/README/1755002619976.png)
 
-*智能配置面板，支持多市场股票分析，5级研究深度选择*
+*Panel de configuración inteligente, soporte para análisis de acciones multi-mercado, selección de 5 niveles de profundidad de investigación*
 
-#### 📊 实时分析进度
+#### 📊 Progreso de Análisis en Tiempo Real
 
 ![1755002731483](images/README/1755002731483.png)
 
-*实时进度跟踪，可视化分析过程，智能时间预估*
+*Seguimiento de progreso en tiempo real, proceso de análisis visualizado, estimación inteligente de tiempo*
 
-#### 📈 分析结果展示
+#### 📈 Visualización de Resultados de Análisis
 
 ![1755002901204](images/README/1755002901204.png)
 
@@ -166,235 +166,235 @@
 
 ![1755003090603](images/README/1755003090603.png)
 
-*专业投资报告，多维度分析结果，一键导出功能*
+*Informe de inversión profesional, resultados de análisis multidimensional, función de exportación con un clic*
 
-### 🎯 核心功能特色
+### 🎯 Características Principales
 
-#### 📋 **智能分析配置**
+#### 📋 **Configuración de Análisis Inteligente**
 
-- **🌍 多市场支持**: 美股、A股、港股一站式分析
-- **🎯 5级研究深度**: 从2分钟快速分析到25分钟全面研究
-- **🤖 智能体选择**: 市场技术、基本面、新闻、社交媒体分析师
-- **📅 灵活时间设置**: 支持历史任意时间点分析
+- **🌍 Soporte multi-mercado**: Análisis integral de acciones estadounidenses, asiáticas y de Hong Kong
+- **🎯 5 niveles de profundidad de investigación**: Desde análisis rápido de 2 minutos hasta investigación completa de 25 minutos
+- **🤖 Selección de agentes**: Analistas de mercado técnico, fundamental, noticias y redes sociales
+- **📅 Configuración flexible de tiempo**: Soporte para análisis en cualquier momento histórico
 
-#### 🚀 **实时进度跟踪**
+#### 🚀 **Seguimiento de Progreso en Tiempo Real**
 
-- **📊 可视化进度**: 实时显示分析进展和剩余时间
-- **🔄 智能步骤识别**: 自动识别当前分析阶段
-- **⏱️ 准确时间预估**: 基于历史数据的智能时间计算
-- **💾 状态持久化**: 页面刷新不丢失分析进度
+- **📊 Progreso visualizado**: Muestra en tiempo real el avance del análisis y tiempo restante
+- **🔄 Identificación inteligente de pasos**: Reconocimiento automático de la etapa actual del análisis
+- **⏱️ Estimación precisa de tiempo**: Cálculo inteligente de tiempo basado en datos históricos
+- **💾 Persistencia de estado**: No se pierde el progreso del análisis al actualizar la página
 
-#### 📈 **专业结果展示**
+#### 📈 **Presentación Profesional de Resultados**
 
-- **🎯 投资决策**: 明确的买入/持有/卖出建议
-- **📊 多维分析**: 技术面、基本面、新闻面综合评估
-- **🔢 量化指标**: 置信度、风险评分、目标价位
-- **📄 专业报告**: 支持Markdown/Word/PDF格式导出
+- **🎯 Decisión de inversión**: Recomendaciones claras de comprar/mantener/vender
+- **📊 Análisis multidimensional**: Evaluación integral técnica, fundamental y de noticias
+- **🔢 Indicadores cuantitativos**: Confianza, puntuación de riesgo, precio objetivo
+- **📄 Informe profesional**: Soporte para exportación en formatos Markdown/Word/PDF
 
-#### 🤖 **多LLM模型管理**
+#### 🤖 **Gestión Multi-Modelo LLM**
 
-- **🌐 4大提供商**: DashScope、DeepSeek、Google AI、OpenRouter
-- **🎯 60+模型选择**: 从经济型到旗舰级模型全覆盖
-- **💾 配置持久化**: URL参数存储，刷新保持设置
-- **⚡ 快速切换**: 5个热门模型一键选择按钮
+- **🌐 4 proveedores principales**: DashScope, DeepSeek, Google AI, OpenRouter
+- **🎯 Más de 60 modelos**: Cobertura completa desde modelos económicos hasta insignia
+- **💾 Configuración persistente**: Almacenamiento de parámetros URL, mantener configuración al actualizar
+- **⚡ Cambio rápido**: Botones de selección rápida de un clic para 5 modelos populares
 
-### 🎮 Web界面操作指南
+### 🎮 Guía de Operación de Interfaz Web
 
-#### 🚀 **快速开始流程**
+#### 🚀 **Flujo de Inicio Rápido**
 
-1. **启动应用**: `python start_web.py` 或 `docker-compose up -d`
-2. **访问界面**: 浏览器打开 `http://localhost:8501`
-3. **配置模型**: 侧边栏选择LLM提供商和模型
-4. **输入股票**: 输入股票代码（如 AAPL、000001、0700.HK）
-5. **选择深度**: 根据需求选择1-5级研究深度
-6. **开始分析**: 点击"🚀 开始分析"按钮
-7. **查看结果**: 实时跟踪进度，查看分析报告
-8. **导出报告**: 一键导出专业格式报告
+1. **Iniciar aplicación**: `python start_web.py` o `docker-compose up -d`
+2. **Acceder a interfaz**: Abrir en navegador `http://localhost:8501`
+3. **Configurar modelo**: Seleccionar proveedor LLM y modelo en barra lateral
+4. **Ingresar acción**: Ingresar código de acción (ej. AAPL, 000001, 0700.HK)
+5. **Seleccionar profundidad**: Seleccionar nivel de investigación 1-5 según necesidades
+6. **Comenzar análisis**: Clic en botón "🚀 Comenzar análisis"
+7. **Ver resultados**: Seguimiento de progreso en tiempo real, ver informe de análisis
+8. **Exportar informe**: Exportar informe en formato profesional con un clic
 
-#### 📊 **支持的股票代码格式**
+#### 📊 **Formatos de Códigos de Acciones Soportados**
 
-- **🇺🇸 美股**: `AAPL`, `TSLA`, `MSFT`, `NVDA`, `GOOGL`
-- **🇨🇳 A股**: `000001`, `600519`, `300750`, `002415`
-- **🇭🇰 港股**: `0700.HK`, `9988.HK`, `3690.HK`, `1810.HK`
+- **🇺🇸 Acciones estadounidenses**: `AAPL`, `TSLA`, `MSFT`, `NVDA`, `GOOGL`
+- **🇨🇳 Acciones asiáticas**: `000001`, `600519`, `300750`, `002415`
+- **🇭🇰 Acciones de Hong Kong**: `0700.HK`, `9988.HK`, `3690.HK`, `1810.HK`
 
-#### 🎯 **研究深度说明**
+#### 🎯 **Descripción de Niveles de Profundidad**
 
-- **1级 (2-4分钟)**: 快速概览，基础技术指标
-- **2级 (4-6分钟)**: 标准分析，技术+基本面
-- **3级 (6-10分钟)**: 深度分析，加入新闻情绪 ⭐ **推荐**
-- **4级 (10-15分钟)**: 全面分析，多轮智能体辩论
-- **5级 (15-25分钟)**: 最深度分析，完整研究报告
+- **Nivel 1 (2-4 minutos)**: Vista rápida, indicadores técnicos básicos
+- **Nivel 2 (4-6 minutos)**: Análisis estándar, técnico + fundamental
+- **Nivel 3 (6-10 minutos)**: Análisis profundo, con sentimiento de noticias ⭐ **Recomendado**
+- **Nivel 4 (10-15 minutos)**: Análisis integral, debate multi-agente
+- **Nivel 5 (15-25 minutos)**: Análisis más profundo, informe completo
 
-#### 💡 **使用技巧**
+#### 💡 **Consejos de Uso**
 
-- **🔄 实时刷新**: 分析过程中可随时刷新页面，进度不丢失
-- **📱 移动适配**: 支持手机和平板设备访问
-- **🎨 深色模式**: 自动适配系统主题设置
-- **⌨️ 快捷键**: 支持Enter键快速提交分析
-- **📋 历史记录**: 自动保存最近的分析配置
+- **🔄 Actualización en tiempo real**: Puede actualizar la página durante el análisis, el progreso no se pierde
+- **📱 Adaptación móvil**: Soporte para acceso desde teléfonos móviles y tablets
+- **🎨 Modo oscuro**: Adaptación automática a configuración de tema del sistema
+- **⌨️ Atajos de teclado**: Soporte para Enter para enviar análisis rápidamente
+- **📋 Historial**: Guarda automáticamente configuraciones de análisis recientes
 
-> 📖 **详细指南**: 完整的Web界面使用说明请参考 [🖥️ Web界面详细使用指南](docs/usage/web-interface-detailed-guide.md)
+> 📖 **Guía detallada**: Para instrucciones completas de uso de la interfaz web, consulte [🖥️ Guía Detallada de Interfaz Web](docs/usage/web-interface-detailed-guide.md)
 
-## 🎯 功能特性
+## 🎯 Características Funcionales
 
-### 🚀  智能新闻分析✨ **v0.1.12重大升级**
+### 🚀 Análisis Inteligente de Noticias✨ **Actualización Importante v0.1.12**
 
 
-| 功能特性               | 状态        | 详细说明                                 |
+| Características               | Estado        | Descripción Detallada                                 |
 | ---------------------- | ----------- | ---------------------------------------- |
-| **🧠 智能新闻分析**    | 🆕 v0.1.12  | AI新闻过滤，质量评估，相关性分析         |
-| **🔧 新闻过滤器**      | 🆕 v0.1.12  | 多层次过滤，基础/增强/集成三级处理       |
-| **📰 统一新闻工具**    | 🆕 v0.1.12  | 整合多源新闻，统一接口，智能检索         |
-| **🤖 多LLM提供商**     | 🆕 v0.1.11  | 4大提供商，60+模型，智能分类管理         |
-| **💾 模型选择持久化**  | 🆕 v0.1.11  | URL参数存储，刷新保持，配置分享          |
-| **🎯 快速选择按钮**    | 🆕 v0.1.11  | 一键切换热门模型，提升操作效率           |
-| **📊 实时进度显示**    | ✅ v0.1.10  | 异步进度跟踪，智能步骤识别，准确时间计算 |
-| **💾 智能会话管理**    | ✅ v0.1.10  | 状态持久化，自动降级，跨页面恢复         |
-| **🎯 一键查看报告**    | ✅ v0.1.10  | 分析完成后一键查看，智能结果恢复         |
-| **🖥️ Streamlit界面** | ✅ 完整支持 | 现代化响应式界面，实时交互和数据可视化   |
-| **⚙️ 配置管理**      | ✅ 完整支持 | Web端API密钥管理，模型选择，参数配置     |
+| **🧠 Análisis Inteligente de Noticias**    | 🆕 v0.1.12  | Filtro de noticias AI, evaluación de calidad, análisis de relevancia         |
+| **🔧 Filtro de Noticias**      | 🆕 v0.1.12  | Filtrado multinivel, procesamiento de tres niveles: básico/mejorado/integrado       |
+| **📰 Herramienta Unificada de Noticias**    | 🆕 v0.1.12  | Integración de noticias multi-fuente, interfaz unificada, búsqueda inteligente         |
+| **🤖 Multi-Proveedor LLM**     | 🆕 v0.1.11  | 4 proveedores principales, más de 60 modelos, gestión de clasificación inteligente         |
+| **💾 Persistencia de Selección de Modelos**  | 🆕 v0.1.11  | Almacenamiento de parámetros URL, mantener al actualizar, compartir configuración          |
+| **🎯 Botones de Selección Rápida**    | 🆕 v0.1.11  | Cambio de modelos populares con un clic, mejora la eficiencia operativa           |
+| **📊 Visualización de Progreso en Tiempo Real**    | ✅ v0.1.10  | Seguimiento de progreso asíncrono, reconocimiento inteligente de pasos, cálculo preciso de tiempo |
+| **💾 Gestión Inteligente de Sesiones**    | ✅ v0.1.10  | Persistencia de estado, degradación automática, recuperación entre páginas         |
+| **🎯 Ver Informe con Un Clic**    | ✅ v0.1.10  | Vista con un clic después de completar análisis, recuperación inteligente de resultados         |
+| **🖥️ Interfaz Streamlit** | ✅ Soporte Completo | Interfaz responsive moderna, interacción en tiempo real y visualización de datos   |
+| **⚙️ Gestión de Configuración**      | ✅ Soporte Completo | Gestión de claves API web, selección de modelos, configuración de parámetros     |
 
-### 🎨 CLI用户体验 ✨ **v0.1.9优化**
+### 🎨 Experiencia de Usuario CLI ✨ **Optimización v0.1.9**
 
 
-| 功能特性                | 状态        | 详细说明                             |
+| Características                | Estado        | Descripción Detallada                             |
 | ----------------------- | ----------- | ------------------------------------ |
-| **🖥️ 界面与日志分离** | ✅ 完整支持 | 用户界面清爽美观，技术日志独立管理   |
-| **🔄 智能进度显示**     | ✅ 完整支持 | 多阶段进度跟踪，防止重复提示         |
-| **⏱️ 时间预估功能**   | ✅ 完整支持 | 智能分析阶段显示预计耗时             |
-| **🌈 Rich彩色输出**     | ✅ 完整支持 | 彩色进度指示，状态图标，视觉效果提升 |
+| **🖥️ Separación de Interfaz y Registros** | ✅ Soporte Completo | Interfaz de usuario limpia y atractiva, gestión independiente de registros técnicos   |
+| **🔄 Visualización Inteligente de Progreso**     | ✅ Soporte Completo | Seguimiento de progreso multi-etapa, previene indicaciones duplicadas         |
+| **⏱️ Función de Estimación de Tiempo**   | ✅ Soporte Completo | Muestra tiempo estimado de etapa de análisis inteligente             |
+| **🌈 Salida en Color Rich**     | ✅ Soporte Completo | Indicador de progreso en color, iconos de estado, mejora de efectos visuales |
 
-### 🧠 LLM模型支持 ✨ **v0.1.13全面升级**
+### 🧠 Soporte de Modelos LLM ✨ **Actualización Completa v0.1.13**
 
 
-| 模型提供商        | 支持模型                     | 特色功能                | 新增功能 |
+| Proveedor de Modelos        | Modelos Soportados                     | Características                | Nueva Funcionalidad |
 | ----------------- | ---------------------------- | ----------------------- | -------- |
-| **🇨🇳 阿里百炼** | qwen-turbo/plus/max          | 中文优化，成本效益高    | ✅ 集成  |
-| **🇨🇳 DeepSeek** | deepseek-chat                | 工具调用，性价比极高    | ✅ 集成  |
-| **🌍 Google AI**  | **9个验证模型**              | 最新Gemini 2.5系列      | 🆕 升级  |
-| ├─**最新旗舰**  | gemini-2.5-pro/flash         | 最新旗舰，超快响应      | 🆕 新增  |
-| ├─**稳定推荐**  | gemini-2.0-flash             | 推荐使用，平衡性能      | 🆕 新增  |
-| ├─**经典强大**  | gemini-1.5-pro/flash         | 经典稳定，高质量分析    | ✅ 集成  |
-| └─**轻量快速**  | gemini-2.5-flash-lite        | 轻量级任务，快速响应    | 🆕 新增  |
-| **🌐 原生OpenAI** | **自定义端点支持**           | 任意OpenAI兼容端点      | 🆕 新增  |
-| **🌐 OpenRouter** | **60+模型聚合平台**          | 一个API访问所有主流模型 | ✅ 集成  |
-| ├─**OpenAI**    | o4-mini-high, o3-pro, GPT-4o | 最新o系列，推理专业版   | ✅ 集成  |
-| ├─**Anthropic** | Claude 4 Opus/Sonnet/Haiku   | 顶级性能，平衡版本      | ✅ 集成  |
-| ├─**Meta**      | Llama 4 Maverick/Scout       | 最新Llama 4系列         | ✅ 集成  |
-| └─**自定义**    | 任意OpenRouter模型ID         | 无限扩展，个性化选择    | ✅ 集成  |
+| **🇨🇳 Alibaba Cloud** | qwen-turbo/plus/max          | Optimizado, alto costo-efectividad    | ✅ Integrado  |
+| **🇨🇳 DeepSeek** | deepseek-chat                | Llamadas de herramientas, excelente relación calidad-precio    | ✅ Integrado  |
+| **🌍 Google AI**  | **9 modelos verificados**              | Última serie Gemini 2.5      | 🆕 Actualizado  |
+| ├─**Última insignia**  | gemini-2.5-pro/flash         | Última insignia, respuesta ultrarrápida      | 🆕 Nuevo  |
+| ├─**Estable recomendado**  | gemini-2.0-flash             | Recomendado, rendimiento equilibrado      | 🆕 Nuevo  |
+| ├─**Clásico potente**  | gemini-1.5-pro/flash         | Clásico estable, análisis de alta calidad    | ✅ Integrado  |
+| └─**Ligero rápido**  | gemini-2.5-flash-lite        | Tareas ligeras, respuesta rápida    | 🆕 Nuevo  |
+| **🌐 OpenAI Nativo** | **Soporte de endpoints personalizados**           | Cualquier endpoint compatible con OpenAI      | 🆕 Nuevo  |
+| **🌐 OpenRouter** | **Plataforma agregada 60+ modelos**          | Un API para acceder a todos los modelos principales | ✅ Integrado  |
+| ├─**OpenAI**    | o4-mini-high, o3-pro, GPT-4o | Última serie o, versión profesional de razonamiento   | ✅ Integrado  |
+| ├─**Anthropic** | Claude 4 Opus/Sonnet/Haiku   | Rendimiento superior, versión equilibrada      | ✅ Integrado  |
+| ├─**Meta**      | Llama 4 Maverick/Scout       | Última serie Llama 4         | ✅ Integrado  |
+| └─**Personalizado**    | Cualquier ID de modelo OpenRouter         | Expansión ilimitada, selección personalizada    | ✅ Integrado  |
 
-**🎯 快速选择**: 5个热门模型快速按钮 | **💾 持久化**: URL参数存储，刷新保持 | **🔄 智能切换**: 一键切换不同提供商
+**🎯 Selección Rápida**: 5 botones de modelos populares | **💾 Persistente**: Almacenamiento de parámetros URL, mantener al actualizar | **🔄 Cambio Inteligente**: Cambio con un clic entre diferentes proveedores
 
-### 📊 数据源与市场
+### 📊 Fuentes de Datos y Mercados
 
 
-| 市场类型      | 数据源                   | 覆盖范围                     |
+| Tipo de Mercado      | Fuente de Datos                   | Cobertura                     |
 | ------------- | ------------------------ | ---------------------------- |
-| **🇨🇳 A股**  | Tushare, AkShare, 通达信 | 沪深两市，实时行情，财报数据 |
-| **🇭🇰 港股** | AkShare, Yahoo Finance   | 港交所，实时行情，基本面     |
-| **🇺🇸 美股** | FinnHub, Yahoo Finance   | NYSE, NASDAQ，实时数据       |
-| **📰 新闻**   | Google News              | 实时新闻，多语言支持         |
+| **🇨🇳 Acciones Asiáticas**  | Tushare, AkShare, TDX | Mercados principales, cotizaciones en tiempo real, datos de informes financieros |
+| **🇭🇰 Hong Kong** | AkShare, Yahoo Finance   | Bolsa de Hong Kong, cotizaciones en tiempo real, fundamentales     |
+| **🇺🇸 EE.UU.** | FinnHub, Yahoo Finance   | NYSE, NASDAQ, datos en tiempo real       |
+| **📰 Noticias**   | Google News              | Noticias en tiempo real, soporte multilingüe         |
 
-### 🤖 智能体团队
+### 🤖 Equipo de Agentes
 
-**分析师团队**: 📈市场分析 | 💰基本面分析 | 📰新闻分析 | 💬情绪分析
-**研究团队**: 🐂看涨研究员 | 🐻看跌研究员 | 🎯交易决策员
-**管理层**: 🛡️风险管理员 | 👔研究主管
+**Equipo de Analistas**: 📈Análisis de Mercado | 💰Análisis Fundamental | 📰Análisis de Noticias | 💬Análisis de Sentimiento
+**Equipo de Investigación**: 🐂Investigador Alcista | 🐻Investigador Bajista | 🎯Decisor de Trading
+**Gestión**: 🛡️Gestor de Riesgos | 👔Director de Investigación
 
-## 🚀 快速开始
+## 🚀 Inicio Rápido
 
-### 🐳 Docker部署 (推荐)
+### 🐳 Despliegue con Docker (Recomendado)
 
 ```bash
-# 1. 克隆项目
+# 1. Clonar proyecto
 git clone https://github.com/hsliuping/TradingAgents-CN.git
 cd TradingAgents-CN
 
-# 2. 配置环境变量
+# 2. Configurar variables de entorno
 cp .env.example .env
-# 编辑 .env 文件，填入API密钥
+# Editar archivo .env, agregar claves API
 
-# 3. 启动服务
-# 首次启动或代码变更时（需要构建镜像）
+# 3. Iniciar servicios
+# Primer inicio o cambios de código (requiere construcción de imagen)
 docker-compose up -d --build
 
-# 日常启动（镜像已存在，无代码变更）
+# Inicio diario (imagen ya existe, sin cambios de código)
 docker-compose up -d
 
-# 智能启动（自动判断是否需要构建）
-# Windows环境
+# Inicio inteligente (determina automáticamente si necesita construcción)
+# Entorno Windows
 powershell -ExecutionPolicy Bypass -File scripts\smart_start.ps1
 
-# Linux/Mac环境
+# Entorno Linux/Mac
 chmod +x scripts/smart_start.sh && ./scripts/smart_start.sh
 
-# 4. 访问应用
-# Web界面: http://localhost:8501
+# 4. Acceder a aplicación
+# Interfaz Web: http://localhost:8501
 ```
 
-### 💻 本地部署
+### 💻 Despliegue Local
 
 ```bash
-# 1. 升级pip (重要！避免安装错误)
+# 1. Actualizar pip (¡importante! evita errores de instalación)
 python -m pip install --upgrade pip
 
-# 2. 安装依赖
+# 2. Instalar dependencias
 pip install -e .
 
-# 3. 启动应用
+# 3. Iniciar aplicación
 python start_web.py
 
-# 4. 访问 http://localhost:8501
+# 4. Acceder a http://localhost:8501
 ```
 
-### 📊 开始分析
+### 📊 Comenzar Análisis
 
-1. **选择模型**: DeepSeek V3 / 通义千问 / Gemini
-2. **输入股票**: `000001` (A股) / `AAPL` (美股) / `0700.HK` (港股)
-3. **开始分析**: 点击"🚀 开始分析"按钮
-4. **实时跟踪**: 观察实时进度和分析步骤
-5. **查看报告**: 点击"📊 查看分析报告"按钮
-6. **导出报告**: 支持Word/PDF/Markdown格式
+1. **Seleccionar modelo**: DeepSeek V3 / Qwen / Gemini
+2. **Ingresar acción**: `000001` (Asiática) / `AAPL` (EE.UU.) / `0700.HK` (Hong Kong)
+3. **Comenzar análisis**: Clic en botón "🚀 Comenzar análisis"
+4. **Seguimiento en tiempo real**: Observar progreso en tiempo real y pasos de análisis
+5. **Ver informe**: Clic en botón "📊 Ver informe de análisis"
+6. **Exportar informe**: Soporte para formatos Word/PDF/Markdown
 
-## 🔐 用户权限管理
+## 🔐 Gestión de Permisos de Usuario
 
-### 🔑 默认账号信息
+### 🔑 Información de Cuentas Predeterminadas
 
-系统提供以下默认账号，首次启动时自动创建：
+El sistema proporciona las siguientes cuentas predeterminadas, creadas automáticamente al inicio:
 
-| 用户名 | 密码 | 角色 | 权限说明 |
+| Usuario | Contraseña | Rol | Descripción de Permisos |
 |--------|------|------|----------|
-| **admin** | **admin123** | 管理员 | 完整系统权限，用户管理，系统配置 |
-| **user** | **user123** | 普通用户 | 股票分析，报告查看，基础功能 |
+| **admin** | **admin123** | Administrador | Permisos completos del sistema, gestión de usuarios, configuración del sistema |
+| **user** | **user123** | Usuario Normal | Análisis de acciones, visualización de informes, funciones básicas |
 
-> ⚠️ **安全提醒**: 首次登录后请立即修改默认密码！
+> ⚠️ **Recordatorio de Seguridad**: ¡Cambie las contraseñas predeterminadas inmediatamente después del primer inicio de sesión!
 
-### 🛡️ 权限控制体系
+### 🛡️ Sistema de Control de Permisos
 
-- **🔐 登录认证**: 基于用户名密码的安全认证
-- **👥 角色管理**: 管理员、普通用户等多级权限
-- **⏰ 会话管理**: 自动超时保护，安全登出
-- **📊 操作日志**: 完整的用户活动记录
+- **🔐 Autenticación de inicio de sesión**: Autenticación segura basada en nombre de usuario y contraseña
+- **👥 Gestión de roles**: Permisos multinivel como administrador, usuario normal, etc.
+- **⏰ Gestión de sesiones**: Protección de tiempo de espera automático, cierre de sesión seguro
+- **📊 Registro de operaciones**: Registro completo de actividades de usuario
 
-### 🛠️ 用户管理工具
+### 🛠️ Herramientas de Gestión de Usuarios
 
-系统提供完整的命令行用户管理工具：
+El sistema proporciona herramientas completas de gestión de usuarios por línea de comandos:
 
-#### Windows 用户
+#### Usuarios de Windows
 ```powershell
-# 使用 PowerShell 脚本
-.\scripts\user_manager.ps1 list                    # 列出所有用户
-.\scripts\user_manager.ps1 change-password admin   # 修改密码
-.\scripts\user_manager.ps1 create newuser trader  # 创建新用户
-.\scripts\user_manager.ps1 delete olduser         # 删除用户
+# Usar script PowerShell
+.\scripts\user_manager.ps1 list                    # Listar todos los usuarios
+.\scripts\user_manager.ps1 change-password admin   # Cambiar contraseña
+.\scripts\user_manager.ps1 create newuser trader  # Crear nuevo usuario
+.\scripts\user_manager.ps1 delete olduser         # Eliminar usuario
 
-# 或使用批处理文件
+# O usar archivo batch
 .\scripts\user_manager.bat list
 ```
 
-#### Python 脚本（跨平台）
+#### Script Python (multiplataforma)
 ```bash
-# 直接使用 Python 脚本
+# Usar directamente script Python
 python scripts/user_password_manager.py list
 python scripts/user_password_manager.py change-password admin
 python scripts/user_password_manager.py create newuser --role trader
