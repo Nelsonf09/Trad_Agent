@@ -1,298 +1,298 @@
-# 🚀 TradingAgents-CN 快速开始指南
+# 🚀 Guía de Inicio Rápido TradingAgents
 
-> 📋 **版本**: cn-0.1.10 | **更新时间**: 2025-07-18
-> 🎯 **目标**: 5分钟内完成部署并开始股票分析
+> 📋 **Versión**: cn-0.1.10 | **Última actualización**: 2025-07-18
+> 🎯 **Objetivo**: Completar despliegue y comenzar análisis de acciones en 5 minutos
 
-## 🎯 选择部署方式
+## 🎯 Elegir Método de Despliegue
 
-### 🐳 方式一：Docker部署 (推荐)
+### 🐳 Método Uno: Despliegue Docker (Recomendado)
 
-**适用场景**: 生产环境、快速体验、零配置启动
+**Escenarios aplicables**: Entorno de producción, experiencia rápida, inicio sin configuración
 
 ```bash
-# 1. 克隆项目
+# 1. Clonar proyecto
 git clone https://github.com/hsliuping/TradingAgents-CN.git
 cd TradingAgents-CN
 
-# 2. 配置环境变量
+# 2. Configurar variables de entorno
 cp .env.example .env
-# 编辑 .env 文件，填入API密钥
+# Editar archivo .env, ingresar claves API
 
-# 3. 构建并启动服务
+# 3. Construir e iniciar servicios
 docker-compose up -d --build
 
-# 注意：首次运行会自动构建Docker镜像，需要5-10分钟时间
-# 构建过程包括：
-# - 下载基础镜像和依赖 (~800MB)
-# - 安装系统工具 (pandoc, wkhtmltopdf等)
-# - 安装Python依赖包
-# - 配置运行环境
+# Nota: La primera ejecución construirá automáticamente la imagen Docker, tomará 5-10 minutos
+# El proceso de construcción incluye:
+# - Descargar imagen base y dependencias (~800MB)
+# - Instalar herramientas del sistema (pandoc, wkhtmltopdf, etc.)
+# - Instalar paquetes de dependencias Python
+# - Configurar entorno de ejecución
 
-# 4. 访问应用
-# Web界面: http://localhost:8501
-# 数据库管理: http://localhost:8081
-# 缓存管理: http://localhost:8082
+# 4. Acceder a aplicación
+# Interfaz Web: http://localhost:8501
+# Gestión de base de datos: http://localhost:8081
+# Gestión de caché: http://localhost:8082
 ```
 
-### 🔧 分步构建方式 (可选)
+### 🔧 Método de Construcción Paso a Paso (Opcional)
 
-如果您希望分步进行，可以先单独构建镜像：
+Si prefiere proceder paso a paso, puede construir la imagen por separado primero:
 
 ```bash
-# 方式A: 分步构建
-# 1. 先构建Docker镜像
+# Método A: Construcción paso a paso
+# 1. Primero construir imagen Docker
 docker build -t tradingagents-cn:latest .
 
-# 2. 再启动所有服务
+# 2. Luego iniciar todos los servicios
 docker-compose up -d
 
-# 方式B: 一键构建启动 (推荐)
+# Método B: Construcción e inicio con un comando (Recomendado)
 docker-compose up -d --build
 ```
 
-### 💻 方式二：本地部署
+### 💻 Método Dos: Despliegue Local
 
-**适用场景**: 开发环境、自定义配置、离线使用
+**Escenarios aplicables**: Entorno de desarrollo, configuración personalizada, uso offline
 
 ```bash
-# 1. 克隆项目
+# 1. Clonar proyecto
 git clone https://github.com/hsliuping/TradingAgents-CN.git
 cd TradingAgents-CN
 
-# 2. 创建虚拟环境
+# 2. Crear entorno virtual
 python -m venv env
 env\Scripts\activate  # Windows
 # source env/bin/activate  # Linux/macOS
 
-# 3. 升级pip (重要！避免安装错误)
+# 3. Actualizar pip (¡importante! evita errores de instalación)
 python -m pip install --upgrade pip
 
-# 4. 安装依赖
+# 4. Instalar dependencias
 pip install -e .
 
-# 5. 配置环境变量
+# 5. Configurar variables de entorno
 cp .env.example .env
-# 编辑 .env 文件
+# Editar archivo .env
 
-# 6. 启动应用
-# 方法1: 使用简化启动脚本（推荐）
+# 6. Iniciar aplicación
+# Método 1: Usar script de inicio simplificado (Recomendado)
 python start_web.py
 
-# 方法2: 使用项目启动脚本
+# Método 2: Usar script de inicio del proyecto
 python web/run_web.py
 
-# 方法3: 直接使用streamlit（需要先安装项目）
+# Método 3: Usar streamlit directamente (requiere instalar proyecto primero)
 streamlit run web/app.py
 ```
 
-## 🔧 环境配置
+## 🔧 Configuración del Entorno
 
-### 📋 必需配置
+### 📋 Configuración Necesaria
 
-创建 `.env` 文件并配置以下内容：
+Crear archivo `.env` y configurar el siguiente contenido:
 
 ```bash
-# === LLM模型配置 (至少选择一个) ===
+# === Configuración de modelos LLM (elegir al menos uno) ===
 
-# 🇨🇳 DeepSeek (推荐 - 成本低，中文优化)
+# 🇨🇳 DeepSeek (Recomendado - bajo costo, optimizado)
 DEEPSEEK_API_KEY=sk-your_deepseek_api_key_here
 DEEPSEEK_ENABLED=true
 
-# 🇨🇳 阿里百炼通义千问 (推荐 - 中文理解好)
+# 🇨🇳 Alibaba Cloud Qwen (Recomendado - buena comprensión)
 QWEN_API_KEY=your_qwen_api_key
 QWEN_ENABLED=true
 
-# 🌍 Google AI Gemini (推荐 - 推理能力强)
+# 🌍 Google AI Gemini (Recomendado - fuerte capacidad de razonamiento)
 GOOGLE_API_KEY=your_google_api_key
 GOOGLE_ENABLED=true
 
-# 🤖 OpenAI (可选 - 通用能力强，成本较高)
+# 🤖 OpenAI (Opcional - capacidad general fuerte, costo alto)
 OPENAI_API_KEY=your_openai_api_key
 OPENAI_ENABLED=true
 ```
 
-### 🔑 API密钥获取
+### 🔑 Obtener Claves API
 
 
-| 提供商        | 获取地址                                                | 特色               | 成本      |
+| Proveedor        | Dirección de Obtención                                                | Características               | Costo      |
 | ------------- | ------------------------------------------------------- | ------------------ | --------- |
-| **DeepSeek**  | [platform.deepseek.com](https://platform.deepseek.com/) | 工具调用，中文优化 | 💰 极低   |
-| **阿里百炼**  | [dashscope.aliyun.com](https://dashscope.aliyun.com/)   | 中文理解，响应快   | 💰 低     |
-| **Google AI** | [aistudio.google.com](https://aistudio.google.com/)     | 推理能力，多模态   | 💰💰 中等 |
-| **OpenAI**    | [platform.openai.com](https://platform.openai.com/)     | 通用能力强         | 💰💰💰 高 |
+| **DeepSeek**  | [platform.deepseek.com](https://platform.deepseek.com/) | Llamadas de herramientas, optimizado | 💰 Muy bajo   |
+| **Alibaba Cloud**  | [dashscope.aliyun.com](https://dashscope.aliyun.com/)   | Comprensión, respuesta rápida   | 💰 Bajo     |
+| **Google AI** | [aistudio.google.com](https://aistudio.google.com/)     | Capacidad de razonamiento, multimodal   | 💰💰 Medio |
+| **OpenAI**    | [platform.openai.com](https://platform.openai.com/)     | Capacidad general fuerte         | 💰💰💰 Alto |
 
-### 📊 可选配置
+### 📊 Configuración Opcional
 
 ```bash
-# === 数据源配置 (可选) ===
-TUSHARE_TOKEN=your_tushare_token          # A股数据增强
-FINNHUB_API_KEY=your_finnhub_key          # 美股数据
+# === Configuración de fuentes de datos (opcional) ===
+TUSHARE_TOKEN=your_tushare_token          # Datos de mercados mejorados
+FINNHUB_API_KEY=your_finnhub_key          # Datos de acciones estadounidenses
 
-# === 数据库配置 (Docker自动配置) ===
-MONGODB_URL=mongodb://mongodb:27017/tradingagents  # Docker环境
-REDIS_URL=redis://redis:6379                       # Docker环境
+# === Configuración de base de datos (Docker configura automáticamente) ===
+MONGODB_URL=mongodb://mongodb:27017/tradingagents  # Entorno Docker
+REDIS_URL=redis://redis:6379                       # Entorno Docker
 
-# === 导出功能配置 ===
-EXPORT_ENABLED=true                       # 启用报告导出
-EXPORT_DEFAULT_FORMAT=word,pdf            # 默认导出格式
+# === Configuración de función de exportación ===
+EXPORT_ENABLED=true                       # Habilitar exportación de informes
+EXPORT_DEFAULT_FORMAT=word,pdf            # Formato de exportación predeterminado
 ```
 
-## 🚀 开始使用
+## 🚀 Comenzar a Usar
 
-### 1️⃣ 访问Web界面
+### 1️⃣ Acceder a Interfaz Web
 
 ```bash
-# 打开浏览器访问
+# Abrir navegador y visitar
 http://localhost:8501
 ```
 
-### 2️⃣ 配置分析参数
+### 2️⃣ Configurar Parámetros de Análisis
 
-- **🧠 选择LLM模型**: DeepSeek V3 / 通义千问 / Gemini
-- **📊 选择分析深度**: 快速 / 标准 / 深度
-- **🎯 选择分析师**: 市场分析 / 基本面分析 / 新闻分析
+- **🧠 Seleccionar modelo LLM**: DeepSeek V3 / Qwen / Gemini
+- **📊 Seleccionar profundidad de análisis**: Rápido / Estándar / Profundo
+- **🎯 Seleccionar analista**: Análisis de mercado / Análisis fundamental / Análisis de noticias
 
-### 3️⃣ 输入股票代码
+### 3️⃣ Ingresar Código de Acción
 
 ```bash
-# 🇨🇳 A股示例
-000001  # 平安银行
-600519  # 贵州茅台
-000858  # 五粮液
+# 🇨🇳 Ejemplos de acciones asiáticas
+000001  # Ping An Bank
+600519  # Kweichow Moutai
+000858  # Wuliangye
 
-# 🇺🇸 美股示例  
-AAPL    # 苹果公司
-TSLA    # 特斯拉
-MSFT    # 微软
+# 🇺🇸 Ejemplos de acciones estadounidenses  
+AAPL    # Apple Inc.
+TSLA    # Tesla
+MSFT    # Microsoft
 ```
 
-### 4️⃣ 开始分析
+### 4️⃣ Comenzar Análisis
 
-1. 点击"🚀 开始分析"按钮
-2. **📊 实时进度跟踪**: 观察分析进度和当前步骤
-   - 显示已用时间和预计剩余时间
-   - 实时更新分析状态和步骤说明
-   - 支持手动刷新和自动刷新控制
-3. **⏰ 分析完成**: 等待分析完成（2-10分钟，取决于分析深度）
-   - 显示准确的总耗时
-   - 自动显示"🎉 分析完成"状态
-4. **📋 查看报告**: 点击"📊 查看分析报告"按钮
-   - 即时显示详细的投资建议和分析报告
-   - 支持重复查看和页面刷新后恢复
-5. **📄 导出报告**: 可选择导出为Word/PDF/Markdown格式
+1. Clic en botón "🚀 Comenzar análisis"
+2. **📊 Seguimiento de progreso en tiempo real**: Observar progreso de análisis y paso actual
+   - Muestra tiempo usado y tiempo restante estimado
+   - Actualización en tiempo real de estado y descripción de pasos de análisis
+   - Soporte para actualización manual y control de actualización automática
+3. **⏰ Análisis completado**: Esperar a que se complete el análisis (2-10 minutos, depende de la profundidad del análisis)
+   - Muestra tiempo total preciso consumido
+   - Muestra automáticamente estado "🎉 Análisis completado"
+4. **📋 Ver informe**: Clic en botón "📊 Ver informe de análisis"
+   - Muestra instantáneamente recomendaciones de inversión detalladas e informe de análisis
+   - Soporte para visualización repetida y recuperación después de actualizar página
+5. **📄 Exportar informe**: Opción de exportar en formatos Word/PDF/Markdown
 
-### 🆕 v0.1.10 新功能亮点
+### 🆕 Destacados de Nuevas Funciones v0.1.10
 
-#### 🚀 实时进度显示
-- **异步进度跟踪**: 实时显示分析进度，不再需要盲等
-- **智能步骤识别**: 自动识别当前分析步骤和状态
-- **准确时间计算**: 显示真实的分析耗时，不受查看时间影响
+#### 🚀 Visualización de Progreso en Tiempo Real
+- **Seguimiento de progreso asíncrono**: Muestra progreso de análisis en tiempo real, no más espera a ciegas
+- **Reconocimiento inteligente de pasos**: Reconoce automáticamente paso y estado actual del análisis
+- **Cálculo preciso de tiempo**: Muestra tiempo real consumido por análisis, no afectado por tiempo de visualización
 
-#### 📊 智能会话管理
-- **状态持久化**: 支持页面刷新后恢复分析状态
-- **自动降级**: Redis不可用时自动切换到文件存储
-- **用户体验**: 提供更稳定可靠的会话管理
+#### 📊 Gestión Inteligente de Sesiones
+- **Persistencia de estado**: Soporte para recuperar estado de análisis después de actualizar página
+- **Degradación automática**: Cambio automático a almacenamiento de archivos cuando Redis no está disponible
+- **Experiencia de usuario**: Proporciona gestión de sesiones más estable y confiable
 
-#### 🎨 界面优化
-- **查看报告按钮**: 分析完成后一键查看报告
-- **重复按钮清理**: 移除重复的刷新按钮，界面更简洁
-- **响应式设计**: 改进移动端和不同屏幕的适配
+#### 🎨 Optimización de Interfaz
+- **Botón ver informe**: Ver informe con un clic después de completar análisis
+- **Limpieza de botones duplicados**: Elimina botones de actualización duplicados, interfaz más limpia
+- **Diseño responsive**: Mejora adaptación móvil y de diferentes pantallas
 
-## 📄 报告导出功能
+## 📄 Función de Exportación de Informes
 
-### 支持格式
+### Formatos Soportados
 
 
-| 格式            | 用途               | 特点               |
+| Formato            | Uso               | Características               |
 | --------------- | ------------------ | ------------------ |
-| **📝 Markdown** | 在线查看，版本控制 | 轻量级，可编辑     |
-| **📄 Word**     | 商业报告，编辑修改 | 专业格式，易编辑   |
-| **📊 PDF**      | 正式发布，打印存档 | 固定格式，专业外观 |
+| **📝 Markdown** | Visualización en línea, control de versiones | Ligero, editable     |
+| **📄 Word**     | Informes comerciales, edición y modificación | Formato profesional, fácil de editar   |
+| **📊 PDF**      | Publicación formal, archivo para impresión | Formato fijo, apariencia profesional |
 
-### 导出步骤
+### Pasos de Exportación
 
-1. 完成股票分析
-2. 在结果页面点击导出按钮
-3. 选择导出格式
-4. 自动下载到本地
+1. Completar análisis de acciones
+2. Clic en botón de exportación en página de resultados
+3. Seleccionar formato de exportación
+4. Descarga automática a local
 
-## 🎯 功能特色
+## 🎯 Características Funcionales
 
-### 🤖 多智能体协作
+### 🤖 Colaboración Multi-Agente
 
-- **📈 市场分析师**: 技术指标，趋势分析
-- **💰 基本面分析师**: 财务数据，估值模型
-- **📰 新闻分析师**: 新闻情绪，事件影响
-- **🐂🐻 研究员**: 看涨看跌辩论
-- **🎯 交易决策员**: 综合决策制定
+- **📈 Analista de Mercado**: Indicadores técnicos, análisis de tendencias
+- **💰 Analista Fundamental**: Datos financieros, modelos de valoración
+- **📰 Analista de Noticias**: Sentimiento de noticias, impacto de eventos
+- **🐂🐻 Investigadores**: Debate alcista y bajista
+- **🎯 Decisor de Trading**: Toma de decisiones integrales
 
-### 🧠 智能模型选择
+### 🧠 Selección Inteligente de Modelos
 
-- **DeepSeek V3**: 成本低，工具调用强，中文优化
-- **通义千问**: 中文理解好，响应快，阿里云
-- **Gemini**: 推理能力强，多模态，Google
-- **GPT-4**: 通用能力最强，成本较高
+- **DeepSeek V3**: Bajo costo, llamadas de herramientas fuertes, optimizado
+- **Qwen**: Buena comprensión, respuesta rápida, Alibaba Cloud
+- **Gemini**: Fuerte capacidad de razonamiento, multimodal, Google
+- **GPT-4**: Capacidad general más fuerte, costo alto
 
-### 📊 全面数据支持
+### 📊 Soporte Completo de Datos
 
-- **🇨🇳 A股**: 实时行情，历史数据，财务指标
-- **🇺🇸 美股**: NYSE/NASDAQ，实时数据
-- **📰 新闻**: 实时财经新闻，情绪分析
-- **💬 社交**: Reddit情绪，市场热度
+- **🇨🇳 Acciones Asiáticas**: Cotizaciones en tiempo real, datos históricos, indicadores financieros
+- **🇺🇸 Acciones Estadounidenses**: NYSE/NASDAQ, datos en tiempo real
+- **📰 Noticias**: Noticias financieras en tiempo real, análisis de sentimiento
+- **💬 Social**: Sentimiento Reddit, popularidad del mercado
 
-## 🚨 常见问题
+## 🚨 Preguntas Frecuentes
 
-### ❓ 分析失败怎么办？
+### ❓ ¿Qué hacer si falla el análisis?
 
-1. **检查API密钥**: 确认密钥正确且有余额
-2. **网络连接**: 确保网络稳定，可访问API
-3. **模型切换**: 尝试切换其他LLM模型
-4. **查看日志**: 检查控制台错误信息
+1. **Verificar claves API**: Confirmar que las claves son correctas y tienen saldo
+2. **Conexión de red**: Asegurar que la red es estable y puede acceder a API
+3. **Cambiar modelo**: Intentar cambiar a otro modelo LLM
+4. **Ver registros**: Revisar información de error en consola
 
-### ❓ 如何提高分析速度？
+### ❓ ¿Cómo mejorar la velocidad del análisis?
 
-1. **选择快速模型**: DeepSeek V3 响应最快
-2. **启用缓存**: 使用Redis缓存重复数据
-3. **快速模式**: 选择快速分析深度
-4. **网络优化**: 确保网络环境稳定
+1. **Elegir modelo rápido**: DeepSeek V3 responde más rápido
+2. **Habilitar caché**: Usar Redis para cachear datos repetidos
+3. **Modo rápido**: Seleccionar profundidad de análisis rápido
+4. **Optimización de red**: Asegurar entorno de red estable
 
-### ❓ Docker部署问题？
+### ❓ ¿Problemas con despliegue Docker?
 
 ```bash
-# 检查服务状态
+# Verificar estado de servicios
 docker-compose ps
 
-# 查看日志
+# Ver registros
 docker logs TradingAgents-web
 
-# 重启服务
+# Reiniciar servicios
 docker-compose restart
 ```
 
-## 📚 下一步
+## 📚 Próximos Pasos
 
-### 🎯 深入使用
+### 🎯 Uso Avanzado
 
-1. **📖 阅读文档**: [完整文档](./docs/)
-2. **🔧 开发环境**: [开发指南](./docs/DEVELOPMENT_SETUP.md)
-3. **🚨 故障排除**: [问题解决](./docs/troubleshooting/)
-4. **🏗️ 架构了解**: [技术架构](./docs/architecture/)
+1. **📖 Leer documentación**: [Documentación completa](./docs/)
+2. **🔧 Entorno de desarrollo**: [Guía de desarrollo](./docs/DEVELOPMENT_SETUP.md)
+3. **🚨 Solución de problemas**: [Resolución de problemas](./docs/troubleshooting/)
+4. **🏗️ Comprender arquitectura**: [Arquitectura técnica](./docs/architecture/)
 
-### 🤝 参与贡献
+### 🤝 Participar en Contribuciones
 
-- 🐛 [报告问题](https://github.com/hsliuping/TradingAgents-CN/issues)
-- 💡 [功能建议](https://github.com/hsliuping/TradingAgents-CN/discussions)
-- 🔧 [提交代码](https://github.com/hsliuping/TradingAgents-CN/pulls)
-- 📚 [完善文档](https://github.com/hsliuping/TradingAgents-CN/tree/develop/docs)
-
----
-
-## 🎉 恭喜完成快速开始！
-
-**💡 提示**: 建议先用熟悉的股票代码进行测试，体验完整的分析流程。
-
-**📞 技术支持**: [GitHub Issues](https://github.com/hsliuping/TradingAgents-CN/issues)
+- 🐛 [Reportar problemas](https://github.com/hsliuping/TradingAgents-CN/issues)
+- 💡 [Sugerencias de funciones](https://github.com/hsliuping/TradingAgents-CN/discussions)
+- 🔧 [Enviar código](https://github.com/hsliuping/TradingAgents-CN/pulls)
+- 📚 [Mejorar documentación](https://github.com/hsliuping/TradingAgents-CN/tree/develop/docs)
 
 ---
 
-*最后更新: 2025-07-13 | 版本: cn-0.1.7*
+## 🎉 ¡Felicitaciones por Completar el Inicio Rápido!
+
+**💡 Consejo**: Se recomienda probar primero con un código de acción familiar para experimentar el proceso de análisis completo.
+
+**📞 Soporte Técnico**: [GitHub Issues](https://github.com/hsliuping/TradingAgents-CN/issues)
+
+---
+
+*Última actualización: 2025-07-13 | Versión: cn-0.1.7*

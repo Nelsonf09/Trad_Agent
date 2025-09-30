@@ -1,146 +1,146 @@
-# 🤝 贡献者名单
+# 🤝 Lista de Contribuidores
 
-感谢所有为TradingAgents-CN项目做出贡献的开发者和用户！
+Gracias a todos los desarrolladores y usuarios que han contribuido al proyecto TradingAgents!
 
-## 🌟 贡献者分类
+## 🌟 Categorías de Contribuidores
 
-### 🐳 Docker容器化功能
+### 🐳 Funcionalidad de Containerización Docker
 
 - **[@breeze303](https://github.com/breeze303)**
-  - 贡献内容：提供完整的Docker Compose配置和容器化部署方案
-  - 影响：大大简化了项目的部署和开发环境配置
-  - 贡献时间：2025年
+  - Contribución: Proporcionó configuración completa de Docker Compose y solución de despliegue containerizado
+  - Impacto: Simplificó enormemente el despliegue del proyecto y configuración del entorno de desarrollo
+  - Tiempo de contribución: 2025
 
-### 📄 报告导出功能
+### 📄 Funcionalidad de Exportación de Informes
 
 - **[@baiyuxiong](https://github.com/baiyuxiong)** (baiyuxiong@163.com)
-  - 贡献内容：设计并实现了完整的多格式报告导出系统
-  - 技术细节：包括Word、PDF、Markdown格式支持
-  - 影响：为用户提供了灵活的分析报告输出选项
-  - 贡献时间：2025年
+  - Contribución: Diseñó e implementó sistema completo de exportación de informes en múltiples formatos
+  - Detalles técnicos: Incluye soporte para formatos Word, PDF y Markdown
+  - Impacto: Proporcionó opciones flexibles de salida de informes de análisis para usuarios
+  - Tiempo de contribución: 2025
 
-### 🤖 AI模型集成与扩展
+### 🤖 Integración y Extensión de Modelos AI
 
 - **[@charliecai](https://github.com/charliecai)**
-  - 贡献内容：添加硅基流动(SiliconFlow) LLM提供商支持
-  - 技术细节：完整的API集成、配置管理和用户界面支持
-  - 影响：为用户提供了更多的AI模型选择，扩展了平台的LLM生态
-  - 贡献时间：2025年
+  - Contribución: Agregó soporte de proveedor LLM SiliconFlow
+  - Detalles técnicos: Integración completa de API, gestión de configuración y soporte de interfaz de usuario
+  - Impacto: Proporcionó más opciones de modelos AI para usuarios, expandió ecosistema LLM de la plataforma
+  - Tiempo de contribución: 2025
 
 - **[@yifanhere](https://github.com/yifanhere)**
-  - 贡献内容：修复logging_manager.py中的NameError异常
-  - 技术细节：添加模块级自举日志器，解决配置文件加载失败时未定义logger变量的问题
-  - 影响：修复了系统启动时的关键错误，提升了日志系统的稳定性和可靠性
-  - 贡献时间：2025年8月
+  - Contribución: Corrigió excepción NameError en logging_manager.py
+  - Detalles técnicos: Agregó logger de arranque a nivel de módulo, resolvió problema de variable logger no definida cuando falla carga de archivo de configuración
+  - Impacto: Corrigió error crítico durante inicio del sistema, mejoró estabilidad y confiabilidad del sistema de registro
+  - Tiempo de contribución: Agosto 2025
 
-### 🐛 Bug修复与系统优化
+### 🐛 Correcciones de Bugs y Optimización del Sistema
 
 - **[@YifanHere](https://github.com/YifanHere)**
-  - **主要贡献**：
-    - 🔧 **CLI代码质量改进** ([PR #158](https://github.com/hsliuping/TradingAgents-CN/pull/158))
-      - 优化命令行界面的用户体验和错误处理机制
-      - 提升了命令行工具的稳定性和用户友好性
-      - 贡献时间：2025年
-    - 🐛 **关键Bug修复** ([PR #173](https://github.com/hsliuping/TradingAgents-CN/pull/173))
-      - 发现并报告了关键的 `KeyError: 'volume'` 问题
-      - 提供了详细的问题分析、根因定位和修复方案
-      - 显著提升了Tushare数据源的系统稳定性，解决了缓存数据标准化问题
-      - 贡献时间：2025年7月
-  - **总体影响**：通过多次贡献持续改善项目的稳定性和用户体验
+  - **Contribuciones principales**:
+    - 🔧 **Mejora de calidad de código CLI** ([PR #158](https://github.com/hsliuping/TradingAgents-CN/pull/158))
+      - Optimizó experiencia de usuario y mecanismo de manejo de errores de interfaz de línea de comandos
+      - Mejoró estabilidad y facilidad de uso de herramientas de línea de comandos
+      - Tiempo de contribución: 2025
+    - 🐛 **Correcciones de Bugs Críticos** ([PR #173](https://github.com/hsliuping/TradingAgents-CN/pull/173))
+      - Descubrió y reportó problema crítico `KeyError: 'volume'`
+      - Proporcionó análisis detallado del problema, localización de causa raíz y solución de corrección
+      - Mejoró significativamente estabilidad del sistema de fuentes de datos Tushare, resolvió problema de estandarización de datos en caché
+      - Tiempo de contribución: Julio 2025
+  - **Impacto general**: Mejoró continuamente estabilidad y experiencia de usuario del proyecto a través de múltiples contribuciones
 
-## 🎯 贡献统计
+## 🎯 Estadísticas de Contribuciones
 
-### 按贡献类型统计
+### Estadísticas por Tipo de Contribución
 
 
-| 贡献类型      | 贡献者数量 | 主要贡献                        |
+| Tipo de Contribución      | Número de Contribuidores | Contribución Principal                        |
 | ------------- | ---------- | ------------------------------- |
-| 🐳 容器化部署 | 1          | Docker配置、部署优化            |
-| 📄 功能开发   | 1          | 报告导出系统                    |
-| 🤖 AI模型集成 | 3          | 硅基流动LLM提供商支持、日志系统修复、千帆模型集成 |
-| 🐛 Bug修复    | 1          | 关键稳定性问题修复、CLI错误处理 |
-| 🔧 代码优化   | 1          | 命令行界面优化、用户体验改进    |
+| 🐳 Despliegue Containerizado | 1          | Configuración Docker, optimización de despliegue            |
+| 📄 Desarrollo de Funcionalidades   | 1          | Sistema de exportación de informes                    |
+| 🤖 Integración de Modelos AI | 3          | Soporte de proveedor LLM SiliconFlow, corrección de sistema de registro, integración de modelos Qianfan |
+| 🐛 Corrección de Bugs    | 1          | Corrección de problemas de estabilidad críticos, manejo de errores CLI |
+| 🔧 Optimización de Código   | 1          | Optimización de interfaz de línea de comandos, mejora de experiencia de usuario    |
 
 ### 
 
-## 🏆 特别贡献奖
+## 🏆 Premios de Contribución Especial
 
-### 🥇 最佳持续贡献奖
+### 🥇 Premio a la Mejor Contribución Continua
 
-- **[@YifanHere](https://github.com/YifanHere)** - 通过多个PR持续改善项目质量，包括CLI优化(#158)和关键Bug修复(#173)
+- **[@YifanHere](https://github.com/YifanHere)** - Mejoró continuamente la calidad del proyecto a través de múltiples PR, incluyendo optimización CLI (#158) y corrección de bugs críticos (#173)
 
-### 🥈 最佳功能贡献奖
+### 🥈 Premio a la Mejor Contribución de Funcionalidad
 
-- **[@baiyuxiong](https://github.com/baiyuxiong)** - 完整的报告导出系统实现
+- **[@baiyuxiong](https://github.com/baiyuxiong)** - Implementación completa del sistema de exportación de informes
 
-### 🥉 最佳部署优化奖
+### 🥉 Premio a la Mejor Optimización de Despliegue
 
-- **[@breeze303](https://github.com/breeze303)** - Docker容器化部署方案
+- **[@breeze303](https://github.com/breeze303)** - Solución de despliegue containerizado Docker
 
-### 🏅 最佳AI集成贡献奖
+### 🏅 Premio a la Mejor Contribución de Integración AI
 
-- **[@charliecai](https://github.com/charliecai)** - 硅基流动(SiliconFlow) LLM提供商集成
-- **TradingAgents-CN团队** - 百度千帆(Qianfan) ERNIE模型集成，提供OpenAI兼容接口
+- **[@charliecai](https://github.com/charliecai)** - Integración de proveedor LLM SiliconFlow
+- **Equipo TradingAgents** - Integración de modelo ERNIE de Baidu Qianfan, proporciona interfaz compatible con OpenAI
 
-### 🛠️ 最佳Bug修复贡献奖
+### 🛠️ Premio a la Mejor Contribución de Corrección de Bugs
 
-- **[@yifanhere](https://github.com/yifanhere)** - 修复了logging_manager.py中的关键NameError异常，通过添加自举日志器解决了系统启动时的核心问题，大幅提升了系统稳定性
+- **[@yifanhere](https://github.com/yifanhere)** - Corrigió excepción NameError crítica en logging_manager.py, resolvió problema central durante inicio del sistema mediante adición de logger de arranque, mejorando significativamente estabilidad del sistema
 
-## 🌟 其他贡献
+## 🌟 Otras Contribuciones
 
-### 📝 问题反馈与建议
+### 📝 Retroalimentación de Problemas y Sugerencias
 
-- **所有提交Issue的用户** - 感谢您们的问题反馈和功能建议
-- **测试用户** - 感谢您们在开发过程中的测试和反馈
-- **文档贡献者** - 感谢您们对项目文档的完善和改进
+- **Todos los usuarios que envían Issues** - Gracias por sus reportes de problemas y sugerencias de funcionalidades
+- **Usuarios de prueba** - Gracias por sus pruebas y retroalimentación durante el desarrollo
+- **Contribuidores de documentación** - Gracias por mejorar y perfeccionar la documentación del proyecto
 
-### 🌍 社区推广
+### 🌍 Promoción en la Comunidad
 
-- **技术博客作者** - 感谢您们撰写技术文章推广项目
-- **社交媒体推广者** - 感谢您们在各平台分享项目信息
-- **会议演讲者** - 感谢您们在技术会议上介绍项目
+- **Autores de blogs técnicos** - Gracias por escribir artículos técnicos promoviendo el proyecto
+- **Promotores en redes sociales** - Gracias por compartir información del proyecto en varias plataformas
+- **Ponentes de conferencias** - Gracias por presentar el proyecto en conferencias técnicas
 
-## 🤝 如何成为贡献者
+## 🤝 Cómo Convertirse en Contribuidor
 
-我们欢迎各种形式的贡献：
+Damos la bienvenida a todas las formas de contribución:
 
-### 🔧 技术贡献
+### 🔧 Contribuciones Técnicas
 
-- **代码贡献**：Bug修复、新功能开发、性能优化
-- **测试贡献**：编写测试用例、发现并报告Bug
-- **文档贡献**：完善文档、编写教程、翻译内容
+- **Contribuciones de código**: Correcciones de bugs, desarrollo de nuevas funcionalidades, optimización de rendimiento
+- **Contribuciones de pruebas**: Escribir casos de prueba, descubrir y reportar bugs
+- **Contribuciones de documentación**: Mejorar documentación, escribir tutoriales, traducir contenido
 
-### 💡 非技术贡献
+### 💡 Contribuciones No Técnicas
 
-- **用户反馈**：使用体验反馈、功能需求建议
-- **社区建设**：回答问题、帮助新用户、组织活动
-- **推广宣传**：撰写文章、社交媒体分享、会议演讲
+- **Retroalimentación de usuarios**: Retroalimentación de experiencia de uso, sugerencias de funcionalidades
+- **Construcción de comunidad**: Responder preguntas, ayudar a nuevos usuarios, organizar actividades
+- **Promoción y difusión**: Escribir artículos, compartir en redes sociales, conferencias
 
-### 📋 贡献流程
+### 📋 Flujo de Contribución
 
-1. **Fork项目** - 创建项目的个人副本
-2. **创建分支** - 为您的贡献创建特性分支
-3. **开发测试** - 实现功能并确保测试通过
-4. **提交PR** - 提交Pull Request并描述您的更改
-5. **代码审查** - 配合维护者进行代码审查
-6. **合并发布** - 通过审查后合并到主分支
+1. **Fork del proyecto** - Crear copia personal del proyecto
+2. **Crear rama** - Crear rama de funcionalidad para su contribución
+3. **Desarrollo y pruebas** - Implementar funcionalidad y asegurar que las pruebas pasen
+4. **Enviar PR** - Enviar Pull Request y describir sus cambios
+5. **Revisión de código** - Colaborar con mantenedores para revisión de código
+6. **Fusión y lanzamiento** - Fusionar en rama principal después de pasar revisión
 
-## 📞 联系方式
+## 📞 Información de Contacto
 
-如果您想成为贡献者或有任何问题，请通过以下方式联系我们：
+Si desea convertirse en contribuidor o tiene alguna pregunta, contáctenos a través de:
 
-- **GitHub Issues**: [提交问题或建议](https://github.com/hsliuping/TradingAgents-CN/issues)
-- **GitHub Discussions**: [参与社区讨论](https://github.com/hsliuping/TradingAgents-CN/discussions)
-- **Pull Requests**: [提交代码贡献](https://github.com/hsliuping/TradingAgents-CN/pulls)
-- 加入到ＱＱ群：782124367
+- **GitHub Issues**: [Enviar problema o sugerencia](https://github.com/hsliuping/TradingAgents-CN/issues)
+- **GitHub Discussions**: [Participar en discusión de la comunidad](https://github.com/hsliuping/TradingAgents-CN/discussions)
+- **Pull Requests**: [Enviar contribución de código](https://github.com/hsliuping/TradingAgents-CN/pulls)
+- Únase al grupo QQ: 782124367
 
-## 🙏 致谢
+## 🙏 Agradecimientos
 
-感谢每一位贡献者的无私奉献！正是因为有了大家的支持和贡献，TradingAgents-CN才能不断发展壮大，为中文用户提供更好的AI金融分析工具。
+¡Gracias a cada contribuidor por su dedicación desinteresada! Gracias al apoyo y contribuciones de todos, TradingAgents puede continuar creciendo y fortaleciendo, proporcionando mejores herramientas de análisis financiero AI para usuarios.
 
 ---
 
-**最后更新时间**: 2025年8月15日
-**贡献者总数**: 6位
-**总PR数量**: 7个 (Docker化、报告导出、AI模型集成、CLI优化、Bug修复、日志系统修复等)
-**活跃贡献者**: 6位
+**Última actualización**: 15 de agosto de 2025
+**Total de contribuidores**: 6
+**Número total de PR**: 7 (Dockerización, exportación de informes, integración de modelos AI, optimización CLI, corrección de bugs, corrección de sistema de registro, etc.)
+**Contribuidores activos**: 6
