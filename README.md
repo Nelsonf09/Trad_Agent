@@ -399,204 +399,204 @@ python scripts/user_password_manager.py list
 python scripts/user_password_manager.py change-password admin
 python scripts/user_password_manager.py create newuser --role trader
 python scripts/user_password_manager.py delete olduser
-python scripts/user_password_manager.py reset  # 重置为默认配置
+python scripts/user_password_manager.py reset  # Restablecer configuración predeterminada
 ```
 
-### 📋 支持的用户操作
+### 📋 Operaciones de Usuario Soportadas
 
-- **📝 列出用户**: 查看所有用户及其角色权限
-- **🔑 修改密码**: 安全的密码更新机制
-- **👤 创建用户**: 支持自定义角色和权限
-- **🗑️ 删除用户**: 安全的用户删除功能
-- **🔄 重置配置**: 恢复默认用户设置
+- **📝 Listar usuarios**: Ver todos los usuarios y sus roles y permisos
+- **🔑 Cambiar contraseña**: Mecanismo seguro de actualización de contraseña
+- **👤 Crear usuario**: Soporte para roles y permisos personalizados
+- **🗑️ Eliminar usuario**: Función segura de eliminación de usuarios
+- **🔄 Restablecer configuración**: Restaurar configuración de usuario predeterminada
 
-### 📁 配置文件位置
+### 📁 Ubicación del Archivo de Configuración
 
-用户配置存储在：`web/config/users.json`
+La configuración de usuario se almacena en: `web/config/users.json`
 
-> 📚 **详细文档**: 完整的用户管理指南请参考 [scripts/USER_MANAGEMENT.md](scripts/USER_MANAGEMENT.md)
+> 📚 **Documentación detallada**: Para una guía completa de gestión de usuarios, consulte [scripts/USER_MANAGEMENT.md](scripts/USER_MANAGEMENT.md)
 
-### 🚧 当前版本限制
+### 🚧 Limitaciones de la Versión Actual
 
-- ❌ 暂不支持在线用户注册
-- ❌ 暂不支持Web界面的角色管理
-- ✅ 支持完整的命令行用户管理
-- ✅ 支持完整的权限控制框架
+- ❌ Registro de usuario en línea no soportado temporalmente
+- ❌ Gestión de roles en interfaz web no soportada temporalmente
+- ✅ Soporte completo de gestión de usuarios por línea de comandos
+- ✅ Soporte completo del marco de control de permisos
 
 ---
 
-## 🎯 核心优势
+## 🎯 Ventajas Principales
 
-- **🧠 智能新闻分析**: v0.1.12新增AI驱动的新闻过滤和质量评估系统
-- **🔧 多层次过滤**: 基础、增强、集成三级新闻过滤机制
-- **📰 统一新闻工具**: 整合多源新闻，提供统一的智能检索接口
-- **🆕 多LLM集成**: v0.1.11新增4大提供商，60+模型，一站式AI体验
-- **💾 配置持久化**: 模型选择真正持久化，URL参数存储，刷新保持
-- **🎯 快速切换**: 5个热门模型快速按钮，一键切换不同AI
-- **🆕 实时进度**: v0.1.10异步进度跟踪，告别黑盒等待
-- **💾 智能会话**: 状态持久化，页面刷新不丢失分析结果
-- **🔐 用户权限**: v0.1.14新增完整的用户认证和权限管理体系
-- **🇨🇳 中国优化**: A股/港股数据 + 国产LLM + 中文界面
-- **🐳 容器化**: Docker一键部署，环境隔离，快速扩展
-- **📄 专业报告**: 多格式导出，自动生成投资建议
-- **🛡️ 稳定可靠**: 多层数据源，智能降级，错误恢复
+- **🧠 Análisis inteligente de noticias**: v0.1.12 nuevo sistema de filtrado y evaluación de calidad de noticias impulsado por IA
+- **🔧 Filtrado multinivel**: Mecanismo de filtrado de noticias de tres niveles: básico, mejorado e integrado
+- **📰 Herramienta unificada de noticias**: Integración de noticias multi-fuente, proporciona interfaz de búsqueda inteligente unificada
+- **🆕 Integración multi-LLM**: v0.1.11 nuevos 4 proveedores principales, más de 60 modelos, experiencia AI todo en uno
+- **💾 Persistencia de configuración**: Selección de modelos verdaderamente persistente, almacenamiento de parámetros URL, mantener al actualizar
+- **🎯 Cambio rápido**: 5 botones de modelos populares, cambio con un clic entre diferentes AI
+- **🆕 Progreso en tiempo real**: v0.1.10 seguimiento de progreso asíncrono, adiós a la espera de caja negra
+- **💾 Sesión inteligente**: Persistencia de estado, no se pierden resultados de análisis al actualizar página
+- **🔐 Permisos de usuario**: v0.1.14 nuevo sistema completo de autenticación de usuarios y gestión de permisos
+- **🌍 Optimización global**: Datos de mercados globales + LLM locales + interfaz multilingüe
+- **🐳 Containerización**: Despliegue Docker con un clic, aislamiento de entornos, escalado rápido
+- **📄 Informes profesionales**: Exportación en múltiples formatos, generación automática de recomendaciones de inversión
+- **🛡️ Estable y confiable**: Múltiples fuentes de datos, degradación inteligente, recuperación de errores
 
-## 🔧 技术架构
+## 🔧 Arquitectura Técnica
 
-**核心技术**: Python 3.10+ | LangChain | Streamlit | MongoDB | Redis
-**AI模型**: DeepSeek V3 | 阿里百炼 | Google AI | OpenRouter(60+模型) | OpenAI
-**数据源**: Tushare | AkShare | FinnHub | Yahoo Finance
-**部署**: Docker | Docker Compose | 本地部署
+**Tecnologías principales**: Python 3.10+ | LangChain | Streamlit | MongoDB | Redis
+**Modelos AI**: DeepSeek V3 | Alibaba Cloud | Google AI | OpenRouter(60+ modelos) | OpenAI
+**Fuentes de datos**: Tushare | AkShare | FinnHub | Yahoo Finance
+**Despliegue**: Docker | Docker Compose | Despliegue local
 
-## 📚 文档和支持
+## 📚 Documentación y Soporte
 
-- **📖 完整文档**: [docs/](./docs/) - 安装指南、使用教程、API文档
-- **🚨 故障排除**: [troubleshooting/](./docs/troubleshooting/) - 常见问题解决方案
-- **🔄 更新日志**: [CHANGELOG.md](./docs/releases/CHANGELOG.md) - 详细版本历史
-- **🚀 快速开始**: [QUICKSTART.md](./QUICKSTART.md) - 5分钟快速部署指南
+- **📖 Documentación completa**: [docs/](./docs/) - Guías de instalación, tutoriales de uso, documentación API
+- **🚨 Solución de problemas**: [troubleshooting/](./docs/troubleshooting/) - Soluciones a problemas comunes
+- **🔄 Registro de cambios**: [CHANGELOG.md](./docs/releases/CHANGELOG.md) - Historial detallado de versiones
+- **🚀 Inicio rápido**: [QUICKSTART.md](./QUICKSTART.md) - Guía de despliegue rápido de 5 minutos
 
-## 🆚 中文增强特色
+## 🆚 Características Mejoradas
 
-**相比原版新增**: 智能新闻分析 | 多层次新闻过滤 | 新闻质量评估 | 统一新闻工具 | 多LLM提供商集成 | 模型选择持久化 | 快速切换按钮 | | 实时进度显示 | 智能会话管理 | 中文界面 | A股数据 | 国产LLM | Docker部署 | 专业报告导出 | 统一日志管理 | Web配置界面 | 成本优化
+**Nuevas características añadidas**: Análisis inteligente de noticias | Filtrado de noticias multinivel | Evaluación de calidad de noticias | Herramienta unificada de noticias | Integración multi-proveedor LLM | Persistencia de selección de modelos | Botones de cambio rápido | Visualización de progreso en tiempo real | Gestión inteligente de sesiones | Interfaz multilingüe | Datos de mercados globales | LLM locales | Despliegue Docker | Exportación profesional de informes | Gestión unificada de registros | Interfaz de configuración web | Optimización de costos
 
-**Docker部署包含的服务**:
+**Servicios incluidos en despliegue Docker**:
 
-- 🌐 **Web应用**: TradingAgents-CN主程序
-- 🗄️ **MongoDB**: 数据持久化存储
-- ⚡ **Redis**: 高速缓存
-- 📊 **MongoDB Express**: 数据库管理界面
-- 🎛️ **Redis Commander**: 缓存管理界面
+- 🌐 **Aplicación Web**: Programa principal TradingAgents
+- 🗄️ **MongoDB**: Almacenamiento persistente de datos
+- ⚡ **Redis**: Caché de alta velocidad
+- 📊 **MongoDB Express**: Interfaz de gestión de base de datos
+- 🎛️ **Redis Commander**: Interfaz de gestión de caché
 
-#### 💻 方式二：本地部署
+#### 💻 Método Dos: Despliegue Local
 
-**适用场景**: 开发环境、自定义配置、离线使用
+**Escenarios aplicables**: Entorno de desarrollo, configuración personalizada, uso offline
 
-### 环境要求
+### Requisitos del Entorno
 
-- Python 3.10+ (推荐 3.11)
-- 4GB+ RAM (推荐 8GB+)
-- 稳定的网络连接
+- Python 3.10+ (recomendado 3.11)
+- 4GB+ RAM (recomendado 8GB+)
+- Conexión de red estable
 
-### 安装步骤
+### Pasos de Instalación
 
 ```bash
-# 1. 克隆项目
+# 1. Clonar proyecto
 git clone https://github.com/hsliuping/TradingAgents-CN.git
 cd TradingAgents-CN
 
-# 2. 创建虚拟环境
+# 2. Crear entorno virtual
 python -m venv env
 # Windows
 env\Scripts\activate
 # Linux/macOS
 source env/bin/activate
 
-# 3. 升级pip
+# 3. Actualizar pip
 python -m pip install --upgrade pip
 
-# 4. 安装所有依赖
+# 4. Instalar todas las dependencias
 pip install -r requirements.txt
-#或者使用pip install -e .
+# O usar pip install -e .
 pip install -e .
 
-# 注意：requirements.txt已包含所有必需依赖：
-# - 数据库支持 (MongoDB + Redis)
-# - 多市场数据源 (Tushare, AKShare, FinnHub等)
-# - Web界面和报告导出功能
+# Nota: requirements.txt ya incluye todas las dependencias necesarias:
+# - Soporte de base de datos (MongoDB + Redis)
+# - Fuentes de datos multi-mercado (Tushare, AKShare, FinnHub, etc.)
+# - Interfaz web y función de exportación de informes
 ```
 
-### 配置API密钥
+### Configurar Claves API
 
-#### 🇨🇳 推荐：使用阿里百炼（国产大模型）
+#### 🌍 Recomendado: Usar Modelos LLM
 
 ```bash
-# 复制配置模板
+# Copiar plantilla de configuración
 cp .env.example .env
 
-# 编辑 .env 文件，配置以下必需的API密钥：
+# Editar archivo .env, configurar las siguientes claves API necesarias:
 DASHSCOPE_API_KEY=your_dashscope_api_key_here
 FINNHUB_API_KEY=your_finnhub_api_key_here
 
-# 推荐：Tushare API（专业A股数据）
+# Recomendado: Tushare API (datos profesionales de mercados)
 TUSHARE_TOKEN=your_tushare_token_here
 TUSHARE_ENABLED=true
 
-# 可选：其他AI模型API
+# Opcional: Otras APIs de modelos AI
 GOOGLE_API_KEY=your_google_api_key_here
 DEEPSEEK_API_KEY=your_deepseek_api_key_here
 
-# 数据库配置（可选，提升性能）
-# 本地部署使用标准端口
-MONGODB_ENABLED=false  # 设为true启用MongoDB
-REDIS_ENABLED=false    # 设为true启用Redis
+# Configuración de base de datos (opcional, mejora rendimiento)
+# Despliegue local usa puertos estándar
+MONGODB_ENABLED=false  # Establecer a true para habilitar MongoDB
+REDIS_ENABLED=false    # Establecer a true para habilitar Redis
 MONGODB_HOST=localhost
-MONGODB_PORT=27017     # 标准MongoDB端口
+MONGODB_PORT=27017     # Puerto estándar MongoDB
 REDIS_HOST=localhost
-REDIS_PORT=6379        # 标准Redis端口
+REDIS_PORT=6379        # Puerto estándar Redis
 
-# Docker部署时需要修改主机名
+# En despliegue Docker necesita modificar nombre de host
 # MONGODB_HOST=mongodb
 # REDIS_HOST=redis
 ```
 
-#### 📋 部署模式配置说明
+#### 📋 Descripción de Configuración de Modo de Despliegue
 
-**本地部署模式**：
-
-```bash
-# 数据库配置（本地部署）
-MONGODB_ENABLED=true
-REDIS_ENABLED=true
-MONGODB_HOST=localhost      # 本地主机
-MONGODB_PORT=27017         # 标准端口
-REDIS_HOST=localhost       # 本地主机
-REDIS_PORT=6379           # 标准端口
-```
-
-**Docker部署模式**：
+**Modo de despliegue local**:
 
 ```bash
-# 数据库配置（Docker部署）
+# Configuración de base de datos (despliegue local)
 MONGODB_ENABLED=true
 REDIS_ENABLED=true
-MONGODB_HOST=mongodb       # Docker容器服务名
-MONGODB_PORT=27017        # 标准端口
-REDIS_HOST=redis          # Docker容器服务名
-REDIS_PORT=6379          # 标准端口
+MONGODB_HOST=localhost      # Host local
+MONGODB_PORT=27017         # Puerto estándar
+REDIS_HOST=localhost       # Host local
+REDIS_PORT=6379           # Puerto estándar
 ```
 
-> 💡 **配置提示**：
+**Modo de despliegue Docker**:
+
+```bash
+# Configuración de base de datos (despliegue Docker)
+MONGODB_ENABLED=true
+REDIS_ENABLED=true
+MONGODB_HOST=mongodb       # Nombre de servicio contenedor Docker
+MONGODB_PORT=27017        # Puerto estándar
+REDIS_HOST=redis          # Nombre de servicio contenedor Docker
+REDIS_PORT=6379          # Puerto estándar
+```
+
+> 💡 **Consejos de configuración**:
 >
-> - 本地部署：需要手动启动MongoDB和Redis服务
-> - Docker部署：数据库服务通过docker-compose自动启动
-> - 端口冲突：如果本地已有数据库服务，可修改docker-compose.yml中的端口映射
+> - Despliegue local: Necesita iniciar servicios MongoDB y Redis manualmente
+> - Despliegue Docker: Servicios de base de datos se inician automáticamente a través de docker-compose
+> - Conflicto de puertos: Si ya hay servicios de base de datos locales, puede modificar el mapeo de puertos en docker-compose.yml
 
-#### 🌍 可选：使用国外模型
+#### 🌍 Opcional: Usar Modelos Internacionales
 
 ```bash
-# OpenAI (需要科学上网)
+# OpenAI (requiere VPN)
 OPENAI_API_KEY=your_openai_api_key
 
-# Anthropic (需要科学上网)
+# Anthropic (requiere VPN)
 ANTHROPIC_API_KEY=your_anthropic_api_key
 ```
 
-### 🗄️ 数据库配置（MongoDB + Redis）
+### 🗄️ Configuración de Base de Datos (MongoDB + Redis)
 
-#### 高性能数据存储支持
+#### Soporte de Almacenamiento de Datos de Alto Rendimiento
 
-本项目支持 **MongoDB** 和 **Redis** 数据库，提供：
+Este proyecto soporta bases de datos **MongoDB** y **Redis**, proporcionando:
 
-- **📊 股票数据缓存**: 减少API调用，提升响应速度
-- **🔄 智能降级机制**: MongoDB → API → 本地缓存的多层数据源
-- **⚡ 高性能缓存**: Redis缓存热点数据，毫秒级响应
-- **🛡️ 数据持久化**: MongoDB存储历史数据，支持离线分析
+- **📊 Caché de datos de acciones**: Reduce llamadas API, mejora velocidad de respuesta
+- **🔄 Mecanismo de degradación inteligente**: Fuente de datos multinivel MongoDB → API → caché local
+- **⚡ Caché de alto rendimiento**: Redis cachea datos frecuentes, respuesta en milisegundos
+- **🛡️ Persistencia de datos**: MongoDB almacena datos históricos, soporta análisis offline
 
-#### 数据库部署方式
+#### Métodos de Despliegue de Base de Datos
 
-**🐳 Docker部署（推荐）**
+**🐳 Despliegue Docker (Recomendado)**
 
-如果您使用Docker部署，数据库已自动包含在内：
+Si usa despliegue Docker, la base de datos ya está incluida automáticamente:
 
 ```bash
 # Docker部署会自动启动所有服务，包括：
